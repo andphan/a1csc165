@@ -1,0 +1,38 @@
+Assignment #1: Building A Game Using Game Engine Components
+Due: Tuesday, February 24
+
+The objective of this assignment is to learn how to use game engine components to build a simple 3D
+game. You are to rely on existing game engine components to supply much of the underlying
+functionality while implementing some of the functionality yourself. The assignment assumes you will
+use the Simple Adaptable Game Engine (SAGE) provided to the class.
+The game to be implemented is called “Treasure Hunt 2015”. The player uses the keyboard and
+gamepad (Xbox controller or similar) to fly around a 3D world collecting “treasures”. A treasure is
+“collected” (and removed from the game) when the player flys into it (i.e., when the camera collides
+with a treasure). As treasures are collected, a “Treasure Chest” (also displayed in the world) grows.
+The game score and elapsed time is shown on a HUD (Heads-Up Display).
+Game Program Requirements
+ Your game must extend sage.app.BaseGame, and override initGame() and update().
+All game logic must reside inside these methods, or in user-written classes invoked by them.
+ You must use sage.scene.shape objects to build some of the treasures. The game initialization
+code should instantiate several such objects of different types, randomly positioned in the world.
+You may need to use scale() to set the sizes of the objects as desired.
+ At least one of the treasures must be a new one that is defined completely by you, in a class that
+extends sage.scene.TriMesh. You will need to explicitly specify the vertices, colors, and
+triangles as needed to construct your object. Don’t just copy one from class notes.
+ Your game must support input actions handled by Action classes. That is, you must write classes
+that implement sage.input.action.IAction, and your game must then utilize
+InputManager.associateAction() to link device components with your Action classes.
+ At least the following key mappings must be provided (you can can add more if you like):
+ A/D/W/S: move camera left/right/forward/backward. Note that all camera motion is relative to
+the camera’s UVN axes; for example “W” moves in the direction of the camera’s N axis.
+ Left-arrow / Right-arrow: rotate the camera (positive or negative) around its V axis (“yaw”).
+ Up-arrow / Down-arrow: rotate the camera (positive or negative) around its U axis (“pitch”).
+ ESCAPE: quit the game.
+ At least the following controller mappings must be provided (you can add more if you like):
+ X-axis: move camera left and right in the same manner as the A and S keys.
+ Y-axis: move camera forward and backward in the same manner as the W and D keys.
+ RX-axis: yaw camera around its V axis, the same as the Left/Right arrow keys.
+ RY-axis: pitch camera around its U axis, the same as the Up/Down arrow keys.
+ The game must display world axes showing where the world origin is located. The X axis should
+be red, the Y axis green, and the Z axis blue. You may add an input command to toggle the axes
+off/on, but this is not required (if you do, the axes must initially be visible).
