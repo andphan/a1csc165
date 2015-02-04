@@ -9,7 +9,7 @@
 	<classpathentry kind="lib" path="C:/javagaming/luaj/luaj-jme-3.0.jar"/>
 	<classpathentry kind="lib" path="C:/javagaming/luaj/luaj-jse-3.0.jar"/>
 	<classpathentry kind="lib" path="C:/javagaming/luaj/luaj-sources-3.0.jar"/>
-	<classpathentry kind="lib" path="C:/javagaming/jogl/gluegen.jar"/>
+	<classpathentry kind="lib" path="C:/javagaming/jogl/gluegen.jar" sourcepath="C:/javagaming/jogl"/>
 	<classpathentry kind="lib" path="C:/javagaming/jogl/gluegen-rt.jar"/>
 	<classpathentry kind="lib" path="C:/javagaming/jogl/gluegen-rt-android.jar"/>
 	<classpathentry kind="lib" path="C:/javagaming/jogl/gluegen-rt-natives-android-armv6.jar"/>
@@ -66,5 +66,7 @@
 	<classpathentry kind="lib" path="C:/javagaming/jinput/jinput.jar"/>
 	<classpathentry kind="lib" path="C:/javagaming/jbullet/jbullet.jar"/>
 	<classpathentry kind="lib" path="C:/javagaming/graphicslib3D/graphicslib3D.jar"/>
+	<classpathentry kind="lib" path="C:/javagaming"/>
+	<classpathentry kind="lib" path="C:/javagaming/jogl/gluegen-natives-windows-amd64.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
