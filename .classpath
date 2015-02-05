@@ -3,7 +3,7 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="lib" path="C:/javagaming/vecmath/vecmath.jar"/>
-	<classpathentry kind="lib" path="C:/javagaming/sage/sage.jar"/>
+	<classpathentry kind="lib" path="C:/javagaming/sage/sage.jar" sourcepath="C:/javagaming/sage/sage.jar"/>
 	<classpathentry kind="lib" path="C:/javagaming/sage/sagetest.jar"/>
 	<classpathentry kind="lib" path="C:/javagaming/ode4j/core-0.3.0.jar"/>
 	<classpathentry kind="lib" path="C:/javagaming/luaj/luaj-jme-3.0.jar"/>
