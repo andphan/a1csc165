@@ -2,10 +2,12 @@ package a1;
 import sage.app.BaseGame;
 import sage.camera.*;
 import sage.display.*;
+import sage.event.IEventManager;
 import sage.input.*;
 import sage.input.action.*;
 import sage.scene.*;
 import sage.scene.shape.*;
+import graphicslib3D.Matrix3D;
 import graphicslib3D.Point3D;
 
 import java.awt.event.*;
@@ -25,6 +27,10 @@ public class treasurehunt2015 extends BaseGame {
 	// treasure chest
 	IDisplaySystem display;
 	ICamera camera;
+	IInputManager im;
+	IEventManager em;
+	myNewTriMesh aPyr;
+	Rectangle rect;
 	private int score = 0;
 	private float time = 0;
 	private HUDString scoreD;
@@ -41,11 +47,12 @@ public class treasurehunt2015 extends BaseGame {
 			// String gpName = im.getFirstGamepadName();
 			
 			// actions
+			IAction quitGame = new QuitGameAction(this);
 			
 			// action associations
-			
+			im.associateAction(kbName, net.java.games.input.Component.Identifier.Key.ESCAPE,
+					quitGame, IInputManager.INPUT_ACTION_TYPE.ON_PRESS_ONLY);
 			// end
-		//	display.addMouseListener(this);
 		}
 			
 		public void initGameObjects()
@@ -56,7 +63,30 @@ public class treasurehunt2015 extends BaseGame {
 			camera.setPerspectiveFrustum(45, 1, 0.01, 1000);
 			camera.setLocation(new Point3D(1,1, 20));
 			
+			/*
+			rect = new Rectangle();
+			Matrix3D rectM = rect.getLocalTranslation();
+			rectM.translate(-1, 1, -5);
+			rect.setLocalTranslation(rectM);
+			addGameWorldObject(rect);
+			
+			aPyr = new myNewTriMesh();
+			Matrix3D pyrM = aPyr.getLocalTranslation();
+			pyrM.translate(2, 2, -8);
+			aPyr.setLocalTranslation(pyrM);
+			addGameWorldObject(aPyr);
+			
+			*/
 			Point3D origin = new Point3D(0, 0, 0);
+			Point3D xEnd = new Point3D(100, 0, 0);
+			Point3D yEnd = new Point3D(0, 100, 0);
+			Point3D zEnd = new Point3D(0, 0, 100);
+			Line xAxis = new Line (origin, xEnd, Color.red, 2);
+			Line yAxis = new Line (origin, yEnd, Color.green, 2);
+			Line zAxis = new Line (origin, zEnd, Color.blue, 2);
+			addGameWorldObject(xAxis);
+			addGameWorldObject(yAxis);
+			addGameWorldObject(zAxis);
 			
 		}
 		public void update(float ElapsedTimeMS)
@@ -75,11 +105,6 @@ public class treasurehunt2015 extends BaseGame {
 		// escape - quit game s
 		
 		// controller input
-		public void mousePressed(MouseEvent e)
-		{
-			// testin
-		}
-		
 		
 		public class leftTurn extends AbstractInputAction
 		{
