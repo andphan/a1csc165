@@ -45,11 +45,13 @@ public class treasurehunt2015 extends BaseGame {
 			// 
 			
 			String kbName = im.getKeyboardName();
+			String gpName = im.getFirstGamepadName();
 			
+			// create actions
 			IAction quitGame = new QuitGameAction(this);
 			
-		//	im.associateAction(kbName, net.java.games.input.Component.Identifier.Key.ESCAPE, quitGame, 
-		//			IInputManager.INPUT_ACTION_TYPE.ON_PRESS_ONLY);
+			im.associateAction(kbName, net.java.games.input.Component.Identifier.Key.ESCAPE, quitGame, 
+					IInputManager.INPUT_ACTION_TYPE.ON_PRESS_ONLY);
 		}
 			
 		public void initGameObjects()
