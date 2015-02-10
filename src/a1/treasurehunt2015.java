@@ -27,13 +27,9 @@ public class treasurehunt2015 extends BaseGame {
 	// treasures
 	// treasure chest
 	IDisplaySystem display;
-	ICamera camera;
+//	ICamera camera;
 	IInputManager im;
 	IEventManager em;
-	private int score = 0;
-	private float time = 0;
-	private HUDString scoreD;
-	private HUDString timeD;
 	
 		public void initGame() // override
 		{	
@@ -45,14 +41,28 @@ public class treasurehunt2015 extends BaseGame {
 			String kbName = im.getKeyboardName();
 			String gpName = im.getFirstGamepadName();
 			
-			// create actions
+			// create keyboard actions
 			IAction quitGame = new QuitGameAction(this);
-			IAction moveForward = new ForwardCameraMovement(camera, 0.01f);
+	//		IAction moveForward = new ForwardCameraMovement(camera, 0.01f);
+	//		IAction moveBack = new BackCameraMovement();
+	//		IAction moveLeft = new LeftCameraMovement();
+	//		IAction moveRight = new RightCameraMovement();
+	//		IAction rotateLeft = new RotateLeftCamera();
+	//		IAction rotateRight = new RotateRightCamera();
 			
-		//	im.associateAction(kbName, net.java.games.input.Component.Identifier.Key.W, moveForward, 
-		//			IInputManager.INPUT_ACTION_TYPE.REPEAT_WHILE_DOWN);
-		//	im.associateAction(kbName, net.java.games.input.Component.Identifier.Key.ESCAPE, quitGame, 
-		//			IInputManager.INPUT_ACTION_TYPE.ON_PRESS_ONLY);
+			// create game controller actions
+			
+	//		IAction controllerX = new XAxisMovement();
+	//		IAction controllerY = new YAxisMovement();
+	//		IAction controllerRX = new RXAxisMovement();
+	//		IAction controllerRY = new RYAxisMovement();
+		
+			
+			// Associate actions
+	//		im.associateAction(kbName, net.java.games.input.Component.Identifier.Key.W, moveForward, 
+	//				IInputManager.INPUT_ACTION_TYPE.REPEAT_WHILE_DOWN);
+			im.associateAction(kbName, net.java.games.input.Component.Identifier.Key.ESCAPE, quitGame, 
+					IInputManager.INPUT_ACTION_TYPE.ON_PRESS_ONLY);
 		}
 			
 		public void initGameObjects()
@@ -61,34 +71,13 @@ public class treasurehunt2015 extends BaseGame {
 			display.setTitle("Treasure Hunt 2015");
 			
 			// testing out camera
-			camera = display.getRenderer().getCamera();
-			camera.setPerspectiveFrustum(45, 1, 0.01, 1000);
-			camera.setLocation(new Point3D(1, 1, 20));
 			
 			
-			// score
-			timeD = new HUDString("Time: " + time);
-			timeD.setLocation(0,0.05);
-			addGameWorldObject(timeD);
-			scoreD = new HUDString("Score: " + time);
-			addGameWorldObject(scoreD);
+			// 	create new objects by using scale()
 			
-			// 	
-		//	Rectangle rect1 = new Rectangle(); // create objects in random x,y,z positions - merge to 3d soon
-		//	addGameWorldObject(rect1);
+			// SAGE Cube - increase ... by using event handling system
 			
-			
-			// current error with teapot problem
-		//	Teapot tp1 = new Teapot();
-			// Matrix3D tM = tp1.getLocalTranslation();
-			// tM.translate(1, 1, 1);
-			// tp1.setLocalTranslation(tM);
-		//	addGameWorldObject(tp1);
-			
-		//	Quad qd1 = new Quad();
-		//	addGameWorldObject(qd1);
-			
-			// create TriMesh
+			// create TriMesh 
 		 	myNewTriMesh tri1 = new myNewTriMesh();
 			addGameWorldObject(tri1);
 			// treasure chest is implemented
