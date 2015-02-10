@@ -1,0 +1,681 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
+  <component name="EclipseModuleManager">
+    <libelement value="jar://C:/javagaming/vecmath/vecmath.jar!/" />
+    <libelement value="jar://C:/javagaming/sage/sage.jar!/" />
+    <libelement value="jar://C:/javagaming/sage/sagetest.jar!/" />
+    <libelement value="jar://C:/javagaming/ode4j/core-0.3.0.jar!/" />
+    <libelement value="jar://C:/javagaming/luaj/luaj-jme-3.0.jar!/" />
+    <libelement value="jar://C:/javagaming/luaj/luaj-jse-3.0.jar!/" />
+    <libelement value="jar://C:/javagaming/luaj/luaj-sources-3.0.jar!/" />
+    <libelement value="jar://C:/javagaming/jogl/gluegen.jar!/" />
+    <libelement value="jar://C:/javagaming/jogl/gluegen-rt.jar!/" />
+    <libelement value="jar://C:/javagaming/jogl/gluegen-rt-android.jar!/" />
+    <libelement value="jar://C:/javagaming/jogl/gluegen-rt-natives-android-armv6.jar!/" />
+    <libelement value="jar://C:/javagaming/jogl/gluegen-rt-natives-linux-amd64.jar!/" />
+    <libelement value="jar://C:/javagaming/jogl/gluegen-rt-natives-linux-armv6.jar!/" />
+    <libelement value="jar://C:/javagaming/jogl/gluegen-rt-natives-linux-armv6hf.jar!/" />
+    <libelement value="jar://C:/javagaming/jogl/gluegen-rt-natives-linux-i586.jar!/" />
+    <libelement value="jar://C:/javagaming/jogl/gluegen-rt-natives-macosx-universal.jar!/" />
+    <libelement value="jar://C:/javagaming/jogl/gluegen-rt-natives-solaris-amd64.jar!/" />
+    <libelement value="jar://C:/javagaming/jogl/gluegen-rt-natives-solaris-i586.jar!/" />
+    <libelement value="jar://C:/javagaming/jogl/gluegen-rt-natives-windows-amd64.jar!/" />
+    <libelement value="jar://C:/javagaming/jogl/gluegen-rt-natives-windows-i586.jar!/" />
+    <libelement value="jar://C:/javagaming/jogl/joal.jar!/" />
+    <libelement value="jar://C:/javagaming/jogl/joal-android.jar!/" />
+    <libelement value="jar://C:/javagaming/jogl/joal-natives-android-armv6.jar!/" />
+    <libelement value="jar://C:/javagaming/jogl/joal-natives-linux-amd64.jar!/" />
+    <libelement value="jar://C:/javagaming/jogl/joal-natives-linux-armv6.jar!/" />
+    <libelement value="jar://C:/javagaming/jogl/joal-natives-linux-armv6hf.jar!/" />
+    <libelement value="jar://C:/javagaming/jogl/joal-natives-linux-i586.jar!/" />
+    <libelement value="jar://C:/javagaming/jogl/joal-natives-macosx-universal.jar!/" />
+    <libelement value="jar://C:/javagaming/jogl/joal-natives-solaris-amd64.jar!/" />
+    <libelement value="jar://C:/javagaming/jogl/joal-natives-solaris-i586.jar!/" />
+    <libelement value="jar://C:/javagaming/jogl/joal-natives-windows-amd64.jar!/" />
+    <libelement value="jar://C:/javagaming/jogl/joal-natives-windows-i586.jar!/" />
+    <libelement value="jar://C:/javagaming/jogl/joal-test.jar!/" />
+    <libelement value="jar://C:/javagaming/jogl/joal-test-android.jar!/" />
+    <libelement value="jar://C:/javagaming/jogl/jocl.jar!/" />
+    <libelement value="jar://C:/javagaming/jogl/jocl-natives-android-armv6.jar!/" />
+    <libelement value="jar://C:/javagaming/jogl/jocl-natives-linux-amd64.jar!/" />
+    <libelement value="jar://C:/javagaming/jogl/jocl-natives-linux-armv6.jar!/" />
+    <libelement value="jar://C:/javagaming/jogl/jocl-natives-linux-armv6hf.jar!/" />
+    <libelement value="jar://C:/javagaming/jogl/jocl-natives-linux-i586.jar!/" />
+    <libelement value="jar://C:/javagaming/jogl/jocl-natives-macosx-universal.jar!/" />
+    <libelement value="jar://C:/javagaming/jogl/jocl-natives-solaris-amd64.jar!/" />
+    <libelement value="jar://C:/javagaming/jogl/jocl-natives-solaris-i586.jar!/" />
+    <libelement value="jar://C:/javagaming/jogl/jocl-natives-windows-amd64.jar!/" />
+    <libelement value="jar://C:/javagaming/jogl/jocl-natives-windows-i586.jar!/" />
+    <libelement value="jar://C:/javagaming/jogl/jogl-all.jar!/" />
+    <libelement value="jar://C:/javagaming/jogl/jogl-all-android.jar!/" />
+    <libelement value="jar://C:/javagaming/jogl/jogl-all-mobile.jar!/" />
+    <libelement value="jar://C:/javagaming/jogl/jogl-all-natives-android-armv6.jar!/" />
+    <libelement value="jar://C:/javagaming/jogl/jogl-all-natives-linux-amd64.jar!/" />
+    <libelement value="jar://C:/javagaming/jogl/jogl-all-natives-linux-armv6.jar!/" />
+    <libelement value="jar://C:/javagaming/jogl/jogl-all-natives-linux-armv6hf.jar!/" />
+    <libelement value="jar://C:/javagaming/jogl/jogl-all-natives-linux-i586.jar!/" />
+    <libelement value="jar://C:/javagaming/jogl/jogl-all-natives-macosx-universal.jar!/" />
+    <libelement value="jar://C:/javagaming/jogl/jogl-all-natives-solaris-amd64.jar!/" />
+    <libelement value="jar://C:/javagaming/jogl/jogl-all-natives-solaris-i586.jar!/" />
+    <libelement value="jar://C:/javagaming/jogl/jogl-all-natives-windows-amd64.jar!/" />
+    <libelement value="jar://C:/javagaming/jogl/jogl-all-natives-windows-i586.jar!/" />
+    <libelement value="jar://C:/javagaming/jogl/jogl-all-noawt.jar!/" />
+    <libelement value="jar://C:/javagaming/jogl/jogl-test.jar!/" />
+    <libelement value="jar://C:/javagaming/jogl/jogl-test-android.jar!/" />
+    <libelement value="jar://C:/javagaming/jinput/jinput.jar!/" />
+    <libelement value="jar://C:/javagaming/jbullet/jbullet.jar!/" />
+    <libelement value="jar://C:/javagaming/graphicslib3D/graphicslib3D.jar!/" />
+    <libelement value="file://C:/javagaming" />
+    <libelement value="jar://C:/javagaming/jogl/gluegen-natives-windows-amd64.jar!/" />
+    <src_description expected_position="0">
+      <src_folder value="file://$MODULE_DIR$/src" expected_position="0" />
+    </src_description>
+  </component>
+  <component name="NewModuleRootManager" inherit-compiler-output="false">
+    <output url="file://$MODULE_DIR$/bin" />
+    <exclude-output />
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
+    </content>
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="module-library">
+      <library name="vecmath.jar">
+        <CLASSES>
+          <root url="jar://C:/javagaming/vecmath/vecmath.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="sage.jar">
+        <CLASSES>
+          <root url="jar://C:/javagaming/sage/sage.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="jar://C:/javagaming/sage/sage.jar!/" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="sagetest.jar">
+        <CLASSES>
+          <root url="jar://C:/javagaming/sage/sagetest.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="core-0.3.0.jar">
+        <CLASSES>
+          <root url="jar://C:/javagaming/ode4j/core-0.3.0.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="luaj-jme-3.0.jar">
+        <CLASSES>
+          <root url="jar://C:/javagaming/luaj/luaj-jme-3.0.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="luaj-jse-3.0.jar">
+        <CLASSES>
+          <root url="jar://C:/javagaming/luaj/luaj-jse-3.0.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="luaj-sources-3.0.jar">
+        <CLASSES>
+          <root url="jar://C:/javagaming/luaj/luaj-sources-3.0.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="gluegen.jar">
+        <CLASSES>
+          <root url="jar://C:/javagaming/jogl/gluegen.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://C:/javagaming/jogl" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="gluegen-rt.jar">
+        <CLASSES>
+          <root url="jar://C:/javagaming/jogl/gluegen-rt.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="gluegen-rt-android.jar">
+        <CLASSES>
+          <root url="jar://C:/javagaming/jogl/gluegen-rt-android.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="gluegen-rt-natives-android-armv6.jar">
+        <CLASSES>
+          <root url="jar://C:/javagaming/jogl/gluegen-rt-natives-android-armv6.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="gluegen-rt-natives-linux-amd64.jar">
+        <CLASSES>
+          <root url="jar://C:/javagaming/jogl/gluegen-rt-natives-linux-amd64.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="gluegen-rt-natives-linux-armv6.jar">
+        <CLASSES>
+          <root url="jar://C:/javagaming/jogl/gluegen-rt-natives-linux-armv6.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="gluegen-rt-natives-linux-armv6hf.jar">
+        <CLASSES>
+          <root url="jar://C:/javagaming/jogl/gluegen-rt-natives-linux-armv6hf.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="gluegen-rt-natives-linux-i586.jar">
+        <CLASSES>
+          <root url="jar://C:/javagaming/jogl/gluegen-rt-natives-linux-i586.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="gluegen-rt-natives-macosx-universal.jar">
+        <CLASSES>
+          <root url="jar://C:/javagaming/jogl/gluegen-rt-natives-macosx-universal.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="gluegen-rt-natives-solaris-amd64.jar">
+        <CLASSES>
+          <root url="jar://C:/javagaming/jogl/gluegen-rt-natives-solaris-amd64.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="gluegen-rt-natives-solaris-i586.jar">
+        <CLASSES>
+          <root url="jar://C:/javagaming/jogl/gluegen-rt-natives-solaris-i586.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="gluegen-rt-natives-windows-amd64.jar">
+        <CLASSES>
+          <root url="jar://C:/javagaming/jogl/gluegen-rt-natives-windows-amd64.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="gluegen-rt-natives-windows-i586.jar">
+        <CLASSES>
+          <root url="jar://C:/javagaming/jogl/gluegen-rt-natives-windows-i586.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="joal.jar">
+        <CLASSES>
+          <root url="jar://C:/javagaming/jogl/joal.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="joal-android.jar">
+        <CLASSES>
+          <root url="jar://C:/javagaming/jogl/joal-android.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="joal-natives-android-armv6.jar">
+        <CLASSES>
+          <root url="jar://C:/javagaming/jogl/joal-natives-android-armv6.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="joal-natives-linux-amd64.jar">
+        <CLASSES>
+          <root url="jar://C:/javagaming/jogl/joal-natives-linux-amd64.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="joal-natives-linux-armv6.jar">
+        <CLASSES>
+          <root url="jar://C:/javagaming/jogl/joal-natives-linux-armv6.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="joal-natives-linux-armv6hf.jar">
+        <CLASSES>
+          <root url="jar://C:/javagaming/jogl/joal-natives-linux-armv6hf.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="joal-natives-linux-i586.jar">
+        <CLASSES>
+          <root url="jar://C:/javagaming/jogl/joal-natives-linux-i586.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="joal-natives-macosx-universal.jar">
+        <CLASSES>
+          <root url="jar://C:/javagaming/jogl/joal-natives-macosx-universal.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="joal-natives-solaris-amd64.jar">
+        <CLASSES>
+          <root url="jar://C:/javagaming/jogl/joal-natives-solaris-amd64.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="joal-natives-solaris-i586.jar">
+        <CLASSES>
+          <root url="jar://C:/javagaming/jogl/joal-natives-solaris-i586.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="joal-natives-windows-amd64.jar">
+        <CLASSES>
+          <root url="jar://C:/javagaming/jogl/joal-natives-windows-amd64.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="joal-natives-windows-i586.jar">
+        <CLASSES>
+          <root url="jar://C:/javagaming/jogl/joal-natives-windows-i586.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="joal-test.jar">
+        <CLASSES>
+          <root url="jar://C:/javagaming/jogl/joal-test.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="joal-test-android.jar">
+        <CLASSES>
+          <root url="jar://C:/javagaming/jogl/joal-test-android.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="jocl.jar">
+        <CLASSES>
+          <root url="jar://C:/javagaming/jogl/jocl.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="jocl-natives-android-armv6.jar">
+        <CLASSES>
+          <root url="jar://C:/javagaming/jogl/jocl-natives-android-armv6.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="jocl-natives-linux-amd64.jar">
+        <CLASSES>
+          <root url="jar://C:/javagaming/jogl/jocl-natives-linux-amd64.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="jocl-natives-linux-armv6.jar">
+        <CLASSES>
+          <root url="jar://C:/javagaming/jogl/jocl-natives-linux-armv6.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="jocl-natives-linux-armv6hf.jar">
+        <CLASSES>
+          <root url="jar://C:/javagaming/jogl/jocl-natives-linux-armv6hf.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="jocl-natives-linux-i586.jar">
+        <CLASSES>
+          <root url="jar://C:/javagaming/jogl/jocl-natives-linux-i586.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="jocl-natives-macosx-universal.jar">
+        <CLASSES>
+          <root url="jar://C:/javagaming/jogl/jocl-natives-macosx-universal.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="jocl-natives-solaris-amd64.jar">
+        <CLASSES>
+          <root url="jar://C:/javagaming/jogl/jocl-natives-solaris-amd64.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="jocl-natives-solaris-i586.jar">
+        <CLASSES>
+          <root url="jar://C:/javagaming/jogl/jocl-natives-solaris-i586.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="jocl-natives-windows-amd64.jar">
+        <CLASSES>
+          <root url="jar://C:/javagaming/jogl/jocl-natives-windows-amd64.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="jocl-natives-windows-i586.jar">
+        <CLASSES>
+          <root url="jar://C:/javagaming/jogl/jocl-natives-windows-i586.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="jogl-all.jar">
+        <CLASSES>
+          <root url="jar://C:/javagaming/jogl/jogl-all.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="jogl-all-android.jar">
+        <CLASSES>
+          <root url="jar://C:/javagaming/jogl/jogl-all-android.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="jogl-all-mobile.jar">
+        <CLASSES>
+          <root url="jar://C:/javagaming/jogl/jogl-all-mobile.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="jogl-all-natives-android-armv6.jar">
+        <CLASSES>
+          <root url="jar://C:/javagaming/jogl/jogl-all-natives-android-armv6.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="jogl-all-natives-linux-amd64.jar">
+        <CLASSES>
+          <root url="jar://C:/javagaming/jogl/jogl-all-natives-linux-amd64.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="jogl-all-natives-linux-armv6.jar">
+        <CLASSES>
+          <root url="jar://C:/javagaming/jogl/jogl-all-natives-linux-armv6.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="jogl-all-natives-linux-armv6hf.jar">
+        <CLASSES>
+          <root url="jar://C:/javagaming/jogl/jogl-all-natives-linux-armv6hf.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="jogl-all-natives-linux-i586.jar">
+        <CLASSES>
+          <root url="jar://C:/javagaming/jogl/jogl-all-natives-linux-i586.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="jogl-all-natives-macosx-universal.jar">
+        <CLASSES>
+          <root url="jar://C:/javagaming/jogl/jogl-all-natives-macosx-universal.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="jogl-all-natives-solaris-amd64.jar">
+        <CLASSES>
+          <root url="jar://C:/javagaming/jogl/jogl-all-natives-solaris-amd64.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="jogl-all-natives-solaris-i586.jar">
+        <CLASSES>
+          <root url="jar://C:/javagaming/jogl/jogl-all-natives-solaris-i586.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="jogl-all-natives-windows-amd64.jar">
+        <CLASSES>
+          <root url="jar://C:/javagaming/jogl/jogl-all-natives-windows-amd64.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="jogl-all-natives-windows-i586.jar">
+        <CLASSES>
+          <root url="jar://C:/javagaming/jogl/jogl-all-natives-windows-i586.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="jogl-all-noawt.jar">
+        <CLASSES>
+          <root url="jar://C:/javagaming/jogl/jogl-all-noawt.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="jogl-test.jar">
+        <CLASSES>
+          <root url="jar://C:/javagaming/jogl/jogl-test.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="jogl-test-android.jar">
+        <CLASSES>
+          <root url="jar://C:/javagaming/jogl/jogl-test-android.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="jinput.jar">
+        <CLASSES>
+          <root url="jar://C:/javagaming/jinput/jinput.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="jbullet.jar">
+        <CLASSES>
+          <root url="jar://C:/javagaming/jbullet/jbullet.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="graphicslib3D.jar">
+        <CLASSES>
+          <root url="jar://C:/javagaming/graphicslib3D/graphicslib3D.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="javagaming">
+        <CLASSES>
+          <root url="file://C:/javagaming" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="gluegen-natives-windows-amd64.jar">
+        <CLASSES>
+          <root url="jar://C:/javagaming/jogl/gluegen-natives-windows-amd64.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+  </component>
+</module>
