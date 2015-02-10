@@ -73,8 +73,8 @@ public class treasurehunt2015 extends BaseGame {
 		//	Teapot tp1 = new Teapot();
 		//	addGameWorldObject(tp1);
 			
-			Quad qd1 = new Quad();
-			addGameWorldObject(qd1);
+		//	Quad qd1 = new Quad();
+		//	addGameWorldObject(qd1);
 			
 			// create TriMesh
 			
