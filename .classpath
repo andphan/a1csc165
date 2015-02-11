@@ -68,5 +68,6 @@
 	<classpathentry kind="lib" path="C:/javagaming/graphicslib3D/graphicslib3D.jar"/>
 	<classpathentry kind="lib" path="C:/javagaming"/>
 	<classpathentry kind="lib" path="C:/javagaming/jogl/gluegen-natives-windows-amd64.jar"/>
+	<classpathentry kind="lib" path="C:/javagaming/jogl/gluegen-natives-windows-i586.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

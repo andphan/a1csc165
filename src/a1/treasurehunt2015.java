@@ -27,7 +27,7 @@ public class treasurehunt2015 extends BaseGame {
 	// treasures
 	// treasure chest
 	IDisplaySystem display;
-//	ICamera camera;
+	ICamera camera;
 	IInputManager im;
 	IEventManager em;
 	
@@ -61,8 +61,8 @@ public class treasurehunt2015 extends BaseGame {
 			// Associate actions
 	//		im.associateAction(kbName, net.java.games.input.Component.Identifier.Key.W, moveForward, 
 	//				IInputManager.INPUT_ACTION_TYPE.REPEAT_WHILE_DOWN);
-			im.associateAction(kbName, net.java.games.input.Component.Identifier.Key.ESCAPE, quitGame, 
-					IInputManager.INPUT_ACTION_TYPE.ON_PRESS_ONLY);
+	//		im.associateAction(kbName, net.java.games.input.Component.Identifier.Key.ESCAPE, quitGame, 
+		//			IInputManager.INPUT_ACTION_TYPE.ON_PRESS_ONLY);
 		}
 			
 		public void initGameObjects()
@@ -71,16 +71,39 @@ public class treasurehunt2015 extends BaseGame {
 			display.setTitle("Treasure Hunt 2015");
 			
 			// testing out camera
+			camera = display.getRenderer().getCamera();
+			camera.setPerspectiveFrustum(45, 1, 0.01, 1000);
+			camera.setLocation(new Point3D(1, 1, 20));
 			
 			
 			// 	create new objects by using scale()
+			Random rng = new Random();
+		/*	Rectangle rect1 = new Rectangle();
+			rect1.scale(1, 2, 2);
+			rect1.translate(rng.nextFloat(), rng.nextFloat(), 0);
+			addGameWorldObject(rect1);
+		*/	
+			Sphere sph = new Sphere();
+			sph.scale(.05f, 0.5f, 1);
+			sph.translate(rng.nextFloat(), rng.nextFloat(), 0);
+			addGameWorldObject(sph);
+			
+	/*		Teapot tph = new Teapot();
+			tph.scale(0.01f, 0.05f, 0);
+			sph.translate(rng.nextFloat(), rng.nextFloat(), 0);
+			addGameWorldObject(tph);
+	*/		
+			Cylinder cyl = new Cylinder();
+			cyl.scale(.05f, 05.f, 0);
+			cyl.translate(rng.nextFloat(), rng.nextFloat(), 0);
+			addGameWorldObject(cyl);
 			
 			// SAGE Cube - increase ... by using event handling system
 			
-			// create TriMesh 
-		 	myNewTriMesh tri1 = new myNewTriMesh();
-			addGameWorldObject(tri1);
-			// treasure chest is implemented
+			// triMesh
+	//		myNewTriMesh myT = new myNewTriMesh();
+	//		addGameWorldObject(myT);
+			// treasureChest
 			
 		}
 		public void update(float ElapsedTimeMS)
