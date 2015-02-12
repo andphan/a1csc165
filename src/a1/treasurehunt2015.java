@@ -78,21 +78,16 @@ public class treasurehunt2015 extends BaseGame {
 			
 			// 	create new objects by using scale()
 			Random rng = new Random();
-		/*	Rectangle rect1 = new Rectangle();
+			Rectangle rect1 = new Rectangle();
 			rect1.scale(1, 2, 2);
 			rect1.translate(rng.nextFloat(), rng.nextFloat(), 0);
 			addGameWorldObject(rect1);
-		*/	
+			
 			Sphere sph = new Sphere();
 			sph.scale(.05f, 0.5f, 1);
 			sph.translate(rng.nextFloat(), rng.nextFloat(), 0);
 			addGameWorldObject(sph);
 			
-	/*		Teapot tph = new Teapot();
-			tph.scale(0.01f, 0.05f, 0);
-			sph.translate(rng.nextFloat(), rng.nextFloat(), 0);
-			addGameWorldObject(tph);
-	*/		
 			Cylinder cyl = new Cylinder();
 			cyl.scale(.05f, 05.f, 0);
 			cyl.translate(rng.nextFloat(), rng.nextFloat(), 0);
@@ -101,8 +96,8 @@ public class treasurehunt2015 extends BaseGame {
 			// SAGE Cube - increase ... by using event handling system
 			
 			// triMesh
-	//		myNewTriMesh myT = new myNewTriMesh();
-	//		addGameWorldObject(myT);
+			myNewTriMesh myT = new myNewTriMesh();
+			addGameWorldObject(myT);
 			// treasureChest
 			
 		}
