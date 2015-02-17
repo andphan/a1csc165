@@ -43,13 +43,15 @@ public class treasurehunt2015 extends BaseGame {
 			
 			// create keyboard actions
 			IAction quitGame = new QuitGameAction(this);
-	//		IAction moveForward = new ForwardCameraMovement(camera, 0.01f);
-	//		IAction moveBack = new BackCameraMovement();
-	//		IAction moveLeft = new LeftCameraMovement();
-	//		IAction moveRight = new RightCameraMovement();
-	//		IAction rotateLeft = new RotateLeftCamera();
-	//		IAction rotateRight = new RotateRightCamera();
-			
+		/*	IAction moveForward = new ForwardCameraMovement(camera, 0.01f);
+			IAction moveBack = new BackCameraMovement();
+			IAction moveLeft = new LeftCameraMovement();
+			IAction moveRight = new RightCameraMovement();
+			IAction rotateUp = new RotateUpCamera();
+			IAction rotateDown = new RotateDownCamera();
+			IAction rotateLeft = new RotateLeftCamera();
+			IAction rotateRight = new RotateRightCamera();
+			*/
 			// create game controller actions
 			
 	//		IAction controllerX = new XAxisMovement();
@@ -61,8 +63,22 @@ public class treasurehunt2015 extends BaseGame {
 			// Associate actions
 	//		im.associateAction(kbName, net.java.games.input.Component.Identifier.Key.W, moveForward, 
 	//				IInputManager.INPUT_ACTION_TYPE.REPEAT_WHILE_DOWN);
-	//		im.associateAction(kbName, net.java.games.input.Component.Identifier.Key.ESCAPE, quitGame, 
-		//			IInputManager.INPUT_ACTION_TYPE.ON_PRESS_ONLY);
+	//		im.associateAction(kbName, net.java.games.input.Component.Identifier.Key.S, moveBackward, 
+	//				IInputManager.INPUT_ACTION_TYPE.REPEAT_WHILE_DOWN);			
+	//		im.associateAction(kbName, net.java.games.input.Component.Identifier.Key.A, moveLeft, 
+	//				IInputManager.INPUT_ACTION_TYPE.REPEAT_WHILE_DOWN);	
+	//		im.associateAction(kbName, net.java.games.input.Component.Identifier.Key.D, moveRight, 
+	//				IInputManager.INPUT_ACTION_TYPE.REPEAT_WHILE_DOWN);	
+	//		im.associateAction(kbName, net.java.games.input.Component.Identifier.Key.LEFT, rotateLeft, 
+	//				IInputManager.INPUT_ACTION_TYPE.REPEAT_WHILE_DOWN);	
+	//		im.associateAction(kbName, net.java.games.input.Component.Identifier.Key.RIGHT, rotateRight, 
+	//			IInputManager.INPUT_ACTION_TYPE.REPEAT_WHILE_DOWN);	
+	//		im.associateAction(kbName, net.java.games.input.Component.Identifier.Key.Up, rotateUp, 
+	//				IInputManager.INPUT_ACTION_TYPE.REPEAT_WHILE_DOWN);	
+	//		im.associateAction(kbName, net.java.games.input.Component.Identifier.Key.Down, rotateDown, 
+	//				IInputManager.INPUT_ACTION_TYPE.REPEAT_WHILE_DOWN);	
+			im.associateAction(kbName, net.java.games.input.Component.Identifier.Key.ESCAPE, quitGame, 
+					IInputManager.INPUT_ACTION_TYPE.ON_PRESS_ONLY);
 		}
 			
 		public void initGameObjects()
@@ -94,7 +110,10 @@ public class treasurehunt2015 extends BaseGame {
 			addGameWorldObject(cyl);
 			
 			// SAGE Cube - increase ... by using event handling system
-			
+			// event class extends AbstractGameVent
+			// IEventListener
+			// detecting collision
+			// 
 			// triMesh
 			myNewTriMesh myT = new myNewTriMesh();
 			addGameWorldObject(myT);
