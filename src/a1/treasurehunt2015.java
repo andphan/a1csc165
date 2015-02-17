@@ -2,6 +2,7 @@ package a1;
 import sage.app.BaseGame;
 import sage.camera.*;
 import sage.display.*;
+import sage.event.EventManager;
 import sage.event.IEventManager;
 import sage.input.*;
 import sage.input.action.*;
@@ -26,14 +27,21 @@ public class treasurehunt2015 extends BaseGame {
 	// player
 	// treasures
 	// treasure chest
+	Rectangle rect1;
+	Sphere sph;
+	Cylinder cyl;
 	IDisplaySystem display;
 	ICamera camera;
 	IInputManager im;
 	IEventManager em;
+	int numHit;
+	private int score = 0;
+	private float time = 0;
 	
 		public void initGame() // override
 		{	
 			IInputManager im = getInputManager();
+			em = EventManager.getInstance();
 			// initialize Managers
 			System.out.println("initGame call");
 			initGameObjects();	
@@ -94,17 +102,17 @@ public class treasurehunt2015 extends BaseGame {
 			
 			// 	create new objects by using scale()
 			Random rng = new Random();
-			Rectangle rect1 = new Rectangle();
+			 rect1 = new Rectangle();
 			rect1.scale(1, 2, 2);
 			rect1.translate(rng.nextFloat(), rng.nextFloat(), 0);
 			addGameWorldObject(rect1);
 			
-			Sphere sph = new Sphere();
+			sph = new Sphere();
 			sph.scale(.05f, 0.5f, 1);
 			sph.translate(rng.nextFloat(), rng.nextFloat(), 0);
 			addGameWorldObject(sph);
 			
-			Cylinder cyl = new Cylinder();
+			cyl = new Cylinder();
 			cyl.scale(.05f, 05.f, 0);
 			cyl.translate(rng.nextFloat(), rng.nextFloat(), 0);
 			addGameWorldObject(cyl);
@@ -123,7 +131,17 @@ public class treasurehunt2015 extends BaseGame {
 		public void update(float ElapsedTimeMS)
 		{
 			// overwritten
-			super.update(ElapsedTimeMS);
+			// update score
+			if (rect1.getWorldBound().contains(camera.getLocation()))
+			{
+				numHit++;
+				score++; // add 1 to score
+		//		CrashEvent newCrash = new CrashEvent(numHit);
+		//		em.triggerEvent(newCrash);
+			}
+			// do this for sphere, cylinder
+			// when crash event happens, treasurechest increase size.
+			
 			// move camera
 			
 		}
