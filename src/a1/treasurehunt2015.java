@@ -30,6 +30,8 @@ public class treasurehunt2015 extends BaseGame {
 	Rectangle rect1;
 	Sphere sph;
 	Cylinder cyl;
+	myNewTriMesh myT;
+	Cube treasureChest;
 	IDisplaySystem display;
 	ICamera camera;
 	IInputManager im;
@@ -49,9 +51,9 @@ public class treasurehunt2015 extends BaseGame {
 			String kbName = im.getKeyboardName();
 			String gpName = im.getFirstGamepadName();
 			
-			// create keyboard actions
+		/*	// create keyboard actions
 			IAction quitGame = new QuitGameAction(this);
-		/*	IAction moveForward = new ForwardCameraMovement(camera, 0.01f);
+			IAction moveForward = new ForwardCameraMovement(camera, 0.01f);
 			IAction moveBack = new BackCameraMovement();
 			IAction moveLeft = new LeftCameraMovement();
 			IAction moveRight = new RightCameraMovement();
@@ -85,8 +87,8 @@ public class treasurehunt2015 extends BaseGame {
 	//				IInputManager.INPUT_ACTION_TYPE.REPEAT_WHILE_DOWN);	
 	//		im.associateAction(kbName, net.java.games.input.Component.Identifier.Key.Down, rotateDown, 
 	//				IInputManager.INPUT_ACTION_TYPE.REPEAT_WHILE_DOWN);	
-			im.associateAction(kbName, net.java.games.input.Component.Identifier.Key.ESCAPE, quitGame, 
-					IInputManager.INPUT_ACTION_TYPE.ON_PRESS_ONLY);
+	//		im.associateAction(kbName, net.java.games.input.Component.Identifier.Key.ESCAPE, quitGame, 
+	//				IInputManager.INPUT_ACTION_TYPE.ON_PRESS_ONLY);
 		}
 			
 		public void initGameObjects()
@@ -102,19 +104,22 @@ public class treasurehunt2015 extends BaseGame {
 			
 			// 	create new objects by using scale()
 			Random rng = new Random();
-			 rect1 = new Rectangle();
-			rect1.scale(1, 2, 2);
-			rect1.translate(rng.nextFloat(), rng.nextFloat(), 0);
+		/*s	rect1 = new Rectangle();
+			Matrix3D rectM = rect1.getLocalTranslation();
+			rectM.translate(23, 21, -80);
+			rect1.setLocalTranslation(rectM);
 			addGameWorldObject(rect1);
 			
 			sph = new Sphere();
-			sph.scale(.05f, 0.5f, 1);
-			sph.translate(rng.nextFloat(), rng.nextFloat(), 0);
+			Matrix3D sphM = sph.getLocalTranslation();
+			sphM.translate(500, 100, 300);
+			sph.setLocalTranslation(sphM);
 			addGameWorldObject(sph);
 			
 			cyl = new Cylinder();
-			cyl.scale(.05f, 05.f, 0);
-			cyl.translate(rng.nextFloat(), rng.nextFloat(), 0);
+			Matrix3D cylM = cyl.getLocalTranslation();
+			cylM.translate(rng.nextFloat(), rng.nextFloat(), 0);
+			cyl.setLocalTranslation(cylM);
 			addGameWorldObject(cyl);
 			
 			// SAGE Cube - increase ... by using event handling system
@@ -123,16 +128,41 @@ public class treasurehunt2015 extends BaseGame {
 			// detecting collision
 			// 
 			// triMesh
-			myNewTriMesh myT = new myNewTriMesh();
+			myT = new myNewTriMesh();
+			Matrix3D myTM = myT.getLocalTranslation();
+			myTM.translate(100, 100, 100);
+			myT.setLocalTranslation(myTM);
 			addGameWorldObject(myT);
+			
+		*/	
 			// treasureChest
+			treasureChest = new Cube();
+			Matrix3D treasureChestM = treasureChest.getLocalTranslation();
+			treasureChestM.translate(rng.nextFloat()*(float)0.5, rng.nextFloat()*0.5, 0);
+			treasureChest.setLocalTranslation(treasureChestM);
+			addGameWorldObject(treasureChest);
+			
+			
+			// add x, y, and z coordinates
+			Point3D origin = new Point3D(0,0,0);
+			Point3D xEnd = new Point3D(100,0,0);
+			Point3D yEnd = new Point3D(0,100,0);
+			Point3D zEnd = new Point3D(0,0,100);
+			Line xAxis = new Line(origin, xEnd, Color.red, 2);
+			Line yAxis = new Line(origin, yEnd, Color.green, 2);
+			Line zAxis = new Line(origin, zEnd, Color.blue, 2);
+			addGameWorldObject(xAxis);
+			addGameWorldObject(yAxis);
+			addGameWorldObject(zAxis);
+			
 			
 		}
 		public void update(float ElapsedTimeMS)
 		{
+			
 			// overwritten
 			// update score
-			if (rect1.getWorldBound().contains(camera.getLocation()))
+/*			if (rect1.getWorldBound().contains(camera.getLocation()))
 			{
 				numHit++;
 				score++; // add 1 to score
@@ -143,7 +173,7 @@ public class treasurehunt2015 extends BaseGame {
 			// when crash event happens, treasurechest increase size.
 			
 			// move camera
-			
+*/
 		}
 		
 	}
