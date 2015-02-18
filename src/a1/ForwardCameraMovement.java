@@ -7,10 +7,10 @@ import sage.input.action.AbstractInputAction;
 
 public class ForwardCameraMovement extends AbstractInputAction {
 
-	private ICamera camera;
+	private MyICamera camera;
 	private float speed;
 	
-	public ForwardCameraMovement(ICamera c, float s)
+	public ForwardCameraMovement(MyICamera c, float s)
 	{
 		camera = c;
 		speed = s;
@@ -18,6 +18,6 @@ public class ForwardCameraMovement extends AbstractInputAction {
 	
 	public void performAction(float timeElapsed, net.java.games.input.Event e)
 	{
-
+		
 	}
 }

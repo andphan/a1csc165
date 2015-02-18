@@ -137,6 +137,7 @@ camera manipulation action objects) multiply this time value by the action speed
 the IAction is constructed) in order to determine camera move distance. Your code should take
 a similar approach. See the code example distributed in class.
 
+30% - created interface/regular camera class - need to build email professor on camera manipulation objects
 
 
  “Treasures” are “collected” by running into them with the camera. This means you must do

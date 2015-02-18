@@ -35,7 +35,7 @@ public class treasurehunt2015 extends BaseGame implements IEventListener{
 	myNewTriMesh myT;
 	Cube treasureChest;
 	IDisplaySystem display;
-	MyCamera camera;
+	ICamera camera;
 	IInputManager im;
 	IEventManager em;
 	int numHit;
@@ -51,13 +51,13 @@ public class treasurehunt2015 extends BaseGame implements IEventListener{
 			// initialize Managers
 			System.out.println("initGame call");
 			initGameObjects();	
-			
+
 			String kbName = im.getKeyboardName();
 			String gpName = im.getFirstGamepadName();
 			
 			// create keyboard actions
 			IAction quitGame = new QuitGameAction(this);
-/*			IAction moveForward = new ForwardCameraMovement(camera, 0.01f);
+	/*		IAction moveForward = new ForwardCameraMovement(camera, 0.01f);
 			IAction moveBack = new BackCameraMovement();
 			IAction moveLeft = new LeftCameraMovement();
 			IAction moveRight = new RightCameraMovement();
@@ -73,6 +73,7 @@ public class treasurehunt2015 extends BaseGame implements IEventListener{
 	//		IAction controllerRX = new RXAxisMovement();
 	//		IAction controllerRY = new RYAxisMovement();
 		
+			/* figure out why laptop cannot run with im.associateAction */
 			
 			// Associate actions
 	//		im.associateAction(kbName, net.java.games.input.Component.Identifier.Key.W, moveForward, 
@@ -91,8 +92,8 @@ public class treasurehunt2015 extends BaseGame implements IEventListener{
 	//				IInputManager.INPUT_ACTION_TYPE.REPEAT_WHILE_DOWN);	
 	//		im.associateAction(kbName, net.java.games.input.Component.Identifier.Key.Down, rotateDown, 
 	//				IInputManager.INPUT_ACTION_TYPE.REPEAT_WHILE_DOWN);	
-			im.associateAction(kbName, net.java.games.input.Component.Identifier.Key.ESCAPE, quitGame, 
-					IInputManager.INPUT_ACTION_TYPE.ON_PRESS_ONLY);
+	//		im.associateAction(kbName, net.java.games.input.Component.Identifier.Key.ESCAPE, quitGame, 
+	//				IInputManager.INPUT_ACTION_TYPE.ON_PRESS_ONLY);
 		}
 			
 		public void initGameObjects()
@@ -102,10 +103,15 @@ public class treasurehunt2015 extends BaseGame implements IEventListener{
 			
 			// testing out camera
 			
+			camera = display.getRenderer().getCamera();
+			camera.setPerspectiveFrustum(45, 1, 0.01, 1000);
+			camera.setLocation(new Point3D(1, 1, 20));
+/*
+			
 			// 	create new objects by using scale()
 			Random rng = new Random();
-			float ax = rng.nextFloat()*(float)0.7;
-			float ay = rng.nextFloat()*(float)0.7;
+			float ax = rng.nextFloat()*(float)1;
+			float ay = rng.nextFloat()*(float)1;
 			
 			rect1 = new Rectangle();
 			Matrix3D rectM = rect1.getLocalTranslation();
@@ -115,8 +121,8 @@ public class treasurehunt2015 extends BaseGame implements IEventListener{
 			rect1.updateWorldBound();
 			
 			Random ang = new Random();
-			float bx = ang.nextFloat()*(float)0.7;
-			float by = ang.nextFloat()*(float)0.7;
+			float bx = ang.nextFloat()*(float)1;
+			float by = ang.nextFloat()*(float)1;
 			
 			
 			sph = new Sphere();
@@ -127,8 +133,8 @@ public class treasurehunt2015 extends BaseGame implements IEventListener{
 			sph.updateWorldBound();
 			
 			Random cng = new Random();
-			float cx = cng.nextFloat()*(float)0.7;
-			float cy = cng.nextFloat()*(float)0.7;
+			float cx = cng.nextFloat()*(float)1;
+			float cy = cng.nextFloat()*(float)1;
 			
 			
 			cyl = new Cylinder();
@@ -138,23 +144,23 @@ public class treasurehunt2015 extends BaseGame implements IEventListener{
 			addGameWorldObject(cyl);
 			cyl.updateWorldBound();
 		//	em.addListener((IEventListener) cyl, CrashEvent.class);
-		
+		*/
 			Random dng = new Random();
-			float dx = dng.nextFloat()*(float)0.7;
-			float dy = dng.nextFloat()*(float)0.7;
+			float dx = dng.nextFloat()*(float)1;
+			float dy = dng.nextFloat()*(float)1;
 			
 			
 			// triMesh
 			myT = new myNewTriMesh();
 			Matrix3D myTM = myT.getLocalTranslation();
-			myTM.translate(dx, dy, 0);
+			myTM.translate(100, 100, 100);
 			myT.setLocalTranslation(myTM);
 			addGameWorldObject(myT);
-			myT.updateWorldBound();
-		
+		//	myT.updateWorldBound();
+		/*
 			Random eng = new Random();
-			float ex = eng.nextFloat()*(float)0.7;
-			float ey = eng.nextFloat()*(float)0.7;
+			float ex = eng.nextFloat()*(float)1;
+			float ey = eng.nextFloat()*(float)1;
 			
 			
 			// treasureChest
@@ -164,7 +170,7 @@ public class treasurehunt2015 extends BaseGame implements IEventListener{
 			treasureChest.setLocalTranslation(treasureChestM);
 			addGameWorldObject(treasureChest);
 			treasureChest.updateWorldBound();
-			
+		*/	
 			// add x, y, and z coordinates
 			Point3D origin = new Point3D(0,0,0);
 			Point3D xEnd = new Point3D(100,0,0);
@@ -196,36 +202,27 @@ public class treasurehunt2015 extends BaseGame implements IEventListener{
 			time += elapsedTimeMS;
 			
 			timeDisplay.setText("Time = " + (time/1000));
-		/*	if (rect1.getWorldBound().contains(camera.getLocation()))
+			/*
+			for (SceneNode s : getGameWorld())
 			{
-				numHit++;
-				score++; // add 1 to score
-				CrashEvent newCrash = new CrashEvent(numHit);
-				em.triggerEvent(newCrash);
-				removeGameWorldObject(rect1);
+				if ( s.getWorldBound() != null)
+				{
+					if (s.getWorldBound().contains(cameraLoc))
+					{
+						// if the rectangle location is there, then remove rectangle etc.
+						// except for treasurechest
+						
+						// increment score
+						// call to increase size
+						
+					}
+				}
 			}
-			if (sph.getWorldBound().contains(camera.getLocation()))
-			{
-				numHit++;
-				score++; // increase score by 1
-				CrashEvent newCrash = new CrashEvent(numHit);
-				em.triggerEvent(newCrash);
-				removeGameWorldObject(sph);
-			}
-			if (cyl.getWorldBound().contains(camera.getLocation()))
-			{
-				numHit++;
-				score++; // increase score by 1
-				CrashEvent newCrash = new CrashEvent(numHit);
-				em.triggerEvent(newCrash);
-				removeGameWorldObject(cyl);
-			}
-			// when crash event happens, treasurechest increase size.
-		*/	
+			*/
 			// move camera
 
 		}
-		
+/*		
 		public boolean handleEvent(IGameEvent event)
 		{
 			CrashEvent c = (CrashEvent) event;
@@ -237,5 +234,5 @@ public class treasurehunt2015 extends BaseGame implements IEventListener{
 					System.out.println("c1 get");
 			return true;
 		}
-		
+*/		
 	}
