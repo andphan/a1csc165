@@ -3,7 +3,9 @@ import sage.app.BaseGame;
 import sage.camera.*;
 import sage.display.*;
 import sage.event.EventManager;
+import sage.event.IEventListener;
 import sage.event.IEventManager;
+import sage.event.IGameEvent;
 import sage.input.*;
 import sage.input.action.*;
 import sage.scene.*;
@@ -21,7 +23,7 @@ import net.java.games.input.Controller;
 import net.java.games.input.*;
 
 
-public class treasurehunt2015 extends BaseGame {
+public class treasurehunt2015 extends BaseGame implements IEventListener{
 	// what type of objects are in the game
 	// world
 	// player
@@ -33,7 +35,7 @@ public class treasurehunt2015 extends BaseGame {
 	myNewTriMesh myT;
 	Cube treasureChest;
 	IDisplaySystem display;
-	ICamera camera;
+	MyCamera camera;
 	IInputManager im;
 	IEventManager em;
 	int numHit;
@@ -53,17 +55,17 @@ public class treasurehunt2015 extends BaseGame {
 			String kbName = im.getKeyboardName();
 			String gpName = im.getFirstGamepadName();
 			
-		/*	// create keyboard actions
+			// create keyboard actions
 			IAction quitGame = new QuitGameAction(this);
-			IAction moveForward = new ForwardCameraMovement(camera, 0.01f);
+/*			IAction moveForward = new ForwardCameraMovement(camera, 0.01f);
 			IAction moveBack = new BackCameraMovement();
 			IAction moveLeft = new LeftCameraMovement();
 			IAction moveRight = new RightCameraMovement();
 			IAction rotateUp = new RotateUpCamera();
 			IAction rotateDown = new RotateDownCamera();
 			IAction rotateLeft = new RotateLeftCamera();
-			IAction rotateRight = new RotateRightCamera();
-			*/
+			IAction rotateRight = new RotateRightCamera(); */
+		
 			// create game controller actions
 			
 	//		IAction controllerX = new XAxisMovement();
@@ -89,8 +91,8 @@ public class treasurehunt2015 extends BaseGame {
 	//				IInputManager.INPUT_ACTION_TYPE.REPEAT_WHILE_DOWN);	
 	//		im.associateAction(kbName, net.java.games.input.Component.Identifier.Key.Down, rotateDown, 
 	//				IInputManager.INPUT_ACTION_TYPE.REPEAT_WHILE_DOWN);	
-	//		im.associateAction(kbName, net.java.games.input.Component.Identifier.Key.ESCAPE, quitGame, 
-	//				IInputManager.INPUT_ACTION_TYPE.ON_PRESS_ONLY);
+			im.associateAction(kbName, net.java.games.input.Component.Identifier.Key.ESCAPE, quitGame, 
+					IInputManager.INPUT_ACTION_TYPE.ON_PRESS_ONLY);
 		}
 			
 		public void initGameObjects()
@@ -99,48 +101,66 @@ public class treasurehunt2015 extends BaseGame {
 			display.setTitle("Treasure Hunt 2015");
 			
 			// testing out camera
-			camera = display.getRenderer().getCamera();
-			camera.setPerspectiveFrustum(45, 1, 0.01, 1000);
-			camera.setLocation(new Point3D(1, 1, 20));
-			
 			
 			// 	create new objects by using scale()
 			Random rng = new Random();
-		/*	rect1 = new Rectangle();
+			float ax = rng.nextFloat()*(float)0.7;
+			float ay = rng.nextFloat()*(float)0.7;
+			
+			rect1 = new Rectangle();
 			Matrix3D rectM = rect1.getLocalTranslation();
-			rectM.translate(23, 21, -80);
+			rectM.translate(ax, ay, 0);
 			rect1.setLocalTranslation(rectM);
 			addGameWorldObject(rect1);
 			rect1.updateWorldBound();
 			
+			Random ang = new Random();
+			float bx = ang.nextFloat()*(float)0.7;
+			float by = ang.nextFloat()*(float)0.7;
+			
+			
 			sph = new Sphere();
 			Matrix3D sphM = sph.getLocalTranslation();
-			sphM.translate(500, 100, 300);
+			sphM.translate(bx, by, 0);
 			sph.setLocalTranslation(sphM);
 			addGameWorldObject(sph);
 			sph.updateWorldBound();
 			
+			Random cng = new Random();
+			float cx = cng.nextFloat()*(float)0.7;
+			float cy = cng.nextFloat()*(float)0.7;
+			
+			
 			cyl = new Cylinder();
 			Matrix3D cylM = cyl.getLocalTranslation();
-			cylM.translate(rng.nextFloat(), rng.nextFloat(), 0);
+			cylM.translate(cx, cy, 0);
 			cyl.setLocalTranslation(cylM);
 			addGameWorldObject(cyl);
 			cyl.updateWorldBound();
+		//	em.addListener((IEventListener) cyl, CrashEvent.class);
+		
+			Random dng = new Random();
+			float dx = dng.nextFloat()*(float)0.7;
+			float dy = dng.nextFloat()*(float)0.7;
 			
 			
-			// 
 			// triMesh
 			myT = new myNewTriMesh();
 			Matrix3D myTM = myT.getLocalTranslation();
-			myTM.translate(100, 100, 100);
+			myTM.translate(dx, dy, 0);
 			myT.setLocalTranslation(myTM);
 			addGameWorldObject(myT);
+			myT.updateWorldBound();
+		
+			Random eng = new Random();
+			float ex = eng.nextFloat()*(float)0.7;
+			float ey = eng.nextFloat()*(float)0.7;
 			
-		*/	
+			
 			// treasureChest
 			treasureChest = new Cube();
 			Matrix3D treasureChestM = treasureChest.getLocalTranslation();
-			treasureChestM.translate(rng.nextFloat()*(float)0.5, rng.nextFloat()*0.5, 0);
+			treasureChestM.translate(ex, ey, 0);
 			treasureChest.setLocalTranslation(treasureChestM);
 			addGameWorldObject(treasureChest);
 			treasureChest.updateWorldBound();
@@ -150,9 +170,9 @@ public class treasurehunt2015 extends BaseGame {
 			Point3D xEnd = new Point3D(100,0,0);
 			Point3D yEnd = new Point3D(0,100,0);
 			Point3D zEnd = new Point3D(0,0,100);
-			Line xAxis = new Line(origin, xEnd, Color.red, 2);
-			Line yAxis = new Line(origin, yEnd, Color.green, 2);
-			Line zAxis = new Line(origin, zEnd, Color.blue, 2);
+			Line xAxis = new Line(origin, xEnd, Color.red, 1);
+			Line yAxis = new Line(origin, yEnd, Color.green, 1);
+			Line zAxis = new Line(origin, zEnd, Color.blue, 1);
 			addGameWorldObject(xAxis);
 			addGameWorldObject(yAxis);
 			addGameWorldObject(zAxis);
@@ -204,6 +224,18 @@ public class treasurehunt2015 extends BaseGame {
 		*/	
 			// move camera
 
+		}
+		
+		public boolean handleEvent(IGameEvent event)
+		{
+			CrashEvent c = (CrashEvent) event;
+			int crashCount = c.getCrash();
+			
+			if (crashCount % 2 == 0)
+					System.out.println("c0 get");
+			else
+					System.out.println("c1 get");
+			return true;
 		}
 		
 	}
