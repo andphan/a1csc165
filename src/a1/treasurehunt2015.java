@@ -38,6 +38,8 @@ public class treasurehunt2015 extends BaseGame {
 	IEventManager em;
 	int numHit;
 	private int score = 0;
+	private HUDString scoreDisplay;
+	private HUDString timeDisplay;
 	private float time = 0;
 	
 		public void initGame() // override
@@ -104,28 +106,28 @@ public class treasurehunt2015 extends BaseGame {
 			
 			// 	create new objects by using scale()
 			Random rng = new Random();
-		/*s	rect1 = new Rectangle();
+		/*	rect1 = new Rectangle();
 			Matrix3D rectM = rect1.getLocalTranslation();
 			rectM.translate(23, 21, -80);
 			rect1.setLocalTranslation(rectM);
 			addGameWorldObject(rect1);
+			rect1.updateWorldBound();
 			
 			sph = new Sphere();
 			Matrix3D sphM = sph.getLocalTranslation();
 			sphM.translate(500, 100, 300);
 			sph.setLocalTranslation(sphM);
 			addGameWorldObject(sph);
+			sph.updateWorldBound();
 			
 			cyl = new Cylinder();
 			Matrix3D cylM = cyl.getLocalTranslation();
 			cylM.translate(rng.nextFloat(), rng.nextFloat(), 0);
 			cyl.setLocalTranslation(cylM);
 			addGameWorldObject(cyl);
+			cyl.updateWorldBound();
 			
-			// SAGE Cube - increase ... by using event handling system
-			// event class extends AbstractGameVent
-			// IEventListener
-			// detecting collision
+			
 			// 
 			// triMesh
 			myT = new myNewTriMesh();
@@ -141,7 +143,7 @@ public class treasurehunt2015 extends BaseGame {
 			treasureChestM.translate(rng.nextFloat()*(float)0.5, rng.nextFloat()*0.5, 0);
 			treasureChest.setLocalTranslation(treasureChestM);
 			addGameWorldObject(treasureChest);
-			
+			treasureChest.updateWorldBound();
 			
 			// add x, y, and z coordinates
 			Point3D origin = new Point3D(0,0,0);
@@ -155,25 +157,53 @@ public class treasurehunt2015 extends BaseGame {
 			addGameWorldObject(yAxis);
 			addGameWorldObject(zAxis);
 			
+			// add HUD
+			scoreDisplay = new HUDString("Score = " + score);
+			scoreDisplay.setColor(Color.orange);
+			addGameWorldObject(scoreDisplay);
+			timeDisplay = new HUDString("Time = " + time);
+			timeDisplay.setColor(Color.WHITE);
+			timeDisplay.setLocation(0, 0.025);
+			addGameWorldObject(timeDisplay);
 			
 		}
-		public void update(float ElapsedTimeMS)
+		public void update(float elapsedTimeMS)
 		{
 			
 			// overwritten
 			// update score
-/*			if (rect1.getWorldBound().contains(camera.getLocation()))
+			scoreDisplay.setText("Score = " + score);
+			time += elapsedTimeMS;
+			
+			timeDisplay.setText("Time = " + (time/1000));
+		/*	if (rect1.getWorldBound().contains(camera.getLocation()))
 			{
 				numHit++;
 				score++; // add 1 to score
-		//		CrashEvent newCrash = new CrashEvent(numHit);
-		//		em.triggerEvent(newCrash);
+				CrashEvent newCrash = new CrashEvent(numHit);
+				em.triggerEvent(newCrash);
+				removeGameWorldObject(rect1);
 			}
-			// do this for sphere, cylinder
+			if (sph.getWorldBound().contains(camera.getLocation()))
+			{
+				numHit++;
+				score++; // increase score by 1
+				CrashEvent newCrash = new CrashEvent(numHit);
+				em.triggerEvent(newCrash);
+				removeGameWorldObject(sph);
+			}
+			if (cyl.getWorldBound().contains(camera.getLocation()))
+			{
+				numHit++;
+				score++; // increase score by 1
+				CrashEvent newCrash = new CrashEvent(numHit);
+				em.triggerEvent(newCrash);
+				removeGameWorldObject(cyl);
+			}
 			// when crash event happens, treasurechest increase size.
-			
+		*/	
 			// move camera
-*/
+
 		}
 		
 	}

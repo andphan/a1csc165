@@ -19,4 +19,5 @@ public class myNewTriMesh extends TriMesh{
 		this.setIndexBuffer(triBuf);
 		
 	}
+	
 }
