@@ -5,7 +5,6 @@ import sage.display.*;
 import sage.event.EventManager;
 import sage.event.IEventListener;
 import sage.event.IEventManager;
-import sage.event.IGameEvent;
 import sage.input.*;
 import sage.input.action.*;
 import sage.scene.*;
@@ -17,7 +16,6 @@ import java.awt.event.*;
 import java.util.Random;
 import java.awt.Color;
 import java.nio.*;
-import java.text.DecimalFormat;
 
 import net.java.games.input.Controller;
 import net.java.games.input.*;
@@ -25,10 +23,6 @@ import net.java.games.input.*;
 
 public class treasurehunt2015 extends BaseGame implements IEventListener{
 	// what type of objects are in the game
-	// world
-	// player
-	// treasures
-	// treasure chest
 	Rectangle rect1;
 	Sphere sph;
 	Cylinder cyl;
@@ -92,8 +86,8 @@ public class treasurehunt2015 extends BaseGame implements IEventListener{
 	//				IInputManager.INPUT_ACTION_TYPE.REPEAT_WHILE_DOWN);	
 	//		im.associateAction(kbName, net.java.games.input.Component.Identifier.Key.Down, rotateDown, 
 	//				IInputManager.INPUT_ACTION_TYPE.REPEAT_WHILE_DOWN);	
-	//		im.associateAction(kbName, net.java.games.input.Component.Identifier.Key.ESCAPE, quitGame, 
-	//				IInputManager.INPUT_ACTION_TYPE.ON_PRESS_ONLY);
+			im.associateAction(kbName, net.java.games.input.Component.Identifier.Key.ESCAPE, quitGame, 
+					IInputManager.INPUT_ACTION_TYPE.ON_PRESS_ONLY);
 		}
 			
 		public void initGameObjects()
@@ -106,7 +100,6 @@ public class treasurehunt2015 extends BaseGame implements IEventListener{
 			camera = display.getRenderer().getCamera();
 			camera.setPerspectiveFrustum(45, 1, 0.01, 1000);
 			camera.setLocation(new Point3D(1, 1, 20));
-/*
 			
 			// 	create new objects by using scale()
 			Random rng = new Random();
@@ -119,58 +112,39 @@ public class treasurehunt2015 extends BaseGame implements IEventListener{
 			rect1.setLocalTranslation(rectM);
 			addGameWorldObject(rect1);
 			rect1.updateWorldBound();
-			
-			Random ang = new Random();
-			float bx = ang.nextFloat()*(float)1;
-			float by = ang.nextFloat()*(float)1;
-			
+
 			
 			sph = new Sphere();
 			Matrix3D sphM = sph.getLocalTranslation();
-			sphM.translate(bx, by, 0);
+			sphM.translate(ax, ay, 0);
 			sph.setLocalTranslation(sphM);
 			addGameWorldObject(sph);
 			sph.updateWorldBound();
-			
-			Random cng = new Random();
-			float cx = cng.nextFloat()*(float)1;
-			float cy = cng.nextFloat()*(float)1;
-			
+
 			
 			cyl = new Cylinder();
 			Matrix3D cylM = cyl.getLocalTranslation();
-			cylM.translate(cx, cy, 0);
+			cylM.translate(ax, ay, 0);
 			cyl.setLocalTranslation(cylM);
 			addGameWorldObject(cyl);
 			cyl.updateWorldBound();
-		//	em.addListener((IEventListener) cyl, CrashEvent.class);
-		*/
-			Random dng = new Random();
-			float dx = dng.nextFloat()*(float)1;
-			float dy = dng.nextFloat()*(float)1;
-			
 			
 			// triMesh
 			myT = new myNewTriMesh();
 			Matrix3D myTM = myT.getLocalTranslation();
-			myTM.translate(100, 100, 100);
+			myTM.translate(ax, ay, 0);
 			myT.setLocalTranslation(myTM);
 			addGameWorldObject(myT);
 		//	myT.updateWorldBound();
-		/*
-			Random eng = new Random();
-			float ex = eng.nextFloat()*(float)1;
-			float ey = eng.nextFloat()*(float)1;
-			
-			
+
 			// treasureChest
 			treasureChest = new Cube();
 			Matrix3D treasureChestM = treasureChest.getLocalTranslation();
-			treasureChestM.translate(ex, ey, 0);
+			treasureChestM.translate(ax, ay, 0);
 			treasureChest.setLocalTranslation(treasureChestM);
 			addGameWorldObject(treasureChest);
 			treasureChest.updateWorldBound();
-		*/	
+	
 			// add x, y, and z coordinates
 			Point3D origin = new Point3D(0,0,0);
 			Point3D xEnd = new Point3D(100,0,0);
@@ -202,37 +176,9 @@ public class treasurehunt2015 extends BaseGame implements IEventListener{
 			time += elapsedTimeMS;
 			
 			timeDisplay.setText("Time = " + (time/1000));
-			/*
-			for (SceneNode s : getGameWorld())
-			{
-				if ( s.getWorldBound() != null)
-				{
-					if (s.getWorldBound().contains(cameraLoc))
-					{
-						// if the rectangle location is there, then remove rectangle etc.
-						// except for treasurechest
-						
-						// increment score
-						// call to increase size
-						
-					}
-				}
-			}
-			*/
+
 			// move camera
 
 		}
-/*		
-		public boolean handleEvent(IGameEvent event)
-		{
-			CrashEvent c = (CrashEvent) event;
-			int crashCount = c.getCrash();
-			
-			if (crashCount % 2 == 0)
-					System.out.println("c0 get");
-			else
-					System.out.println("c1 get");
-			return true;
-		}
-*/		
+
 	}

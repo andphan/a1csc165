@@ -20,7 +20,8 @@ IN PROGRESS 40%
  You must use sage.scene.shape objects to build some of the treasures. The game initialization
 code should instantiate several such objects of different types, randomly positioned in the world.
 You may need to use scale() to set the sizes of the objects as desired.
-30%.
+
+80%
 
 need to figure out why it isn't being randomly positioned.
 
@@ -59,6 +60,8 @@ the camera’s UVN axes; for example “W” moves in the direction of the camer
 
  RY-axis: pitch camera around its U axis, the same as the Up/Down arrow keys.
 
+10%
+
  The game must display world axes showing where the world origin is located. The X axis should
 be red, the Y axis green, and the Z axis blue. You may add an input command to toggle the axes
 off/on, but this is not required (if you do, the axes must initially be visible).2
@@ -82,7 +85,11 @@ chest, (3) detecting collisions between the camera and game objects, (4) trigger
 a collision is detected, and (5) handling the collision in the listener by increasing the size of the
 treasure chest. You may place the treasure chest in the world wherever you want.
 
-0%
+(1) creating an event class that extends AbstractGameEvent, 
+(2) associating your event type with an IEventListener – such as the treasure chest,
+(3) detecting collisions between the camera and game objects, 
+(4) triggering an event when a collision is detected, and 
+(5) handling the collision in the listener by increasing the size of thetreasure chest.
 
  The game must set the window title. BaseGame provides a simple way of accessing this.
 100%
