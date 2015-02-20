@@ -62,6 +62,11 @@ the camera’s UVN axes; for example “W” moves in the direction of the camer
 
 10%
 
+current error: 
+
+Feb 19, 2015 10:30:56 PM net.java.games.input.ControllerEnvironment log
+INFO: Failed to poll device: Failed to poll device (8007001e)
+
  The game must display world axes showing where the world origin is located. The X axis should
 be red, the Y axis green, and the Z axis blue. You may add an input command to toggle the axes
 off/on, but this is not required (if you do, the axes must initially be visible).2
@@ -87,7 +92,7 @@ treasure chest. You may place the treasure chest in the world wherever you want.
 
 did 1, 2, 3, 4
 
-5???
+90%
 
 
 (1) creating an event class that extends AbstractGameEvent, 

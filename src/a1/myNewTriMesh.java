@@ -23,6 +23,7 @@ public class myNewTriMesh extends TriMesh implements IEventListener{
 		this.setIndexBuffer(triBuf);
 		
 	}
+	
 
 	public boolean handleEvent(IGameEvent e) {
 		CrashEvent c = (CrashEvent) e;
@@ -31,6 +32,7 @@ public class myNewTriMesh extends TriMesh implements IEventListener{
 		if (crashInc % 2 == 0)
 		{
 			System.out.println("Scale up this trimesh!");
+			this.scale(10, 10, 10);
 		}
 		else
 		{
