@@ -13,8 +13,4 @@ public class CrashEvent extends AbstractGameEvent {
 	{
 		return numCrash;
 	}
-	
-	// increase score
-	// build 
-
 }

@@ -51,15 +51,16 @@ public class treasurehunt2015 extends BaseGame implements IEventListener{
 			String gpName = im.getFirstGamepadName();
 			
 			// create keyboard actions
+			MovementToggle movement = new MovementToggle();
 			IAction quitGame = new QuitGameAction(this);
-	/*		IAction moveForward = new ForwardCameraMovement(camera, 0.01f);
-			IAction moveBack = new BackCameraMovement();
-			IAction moveLeft = new LeftCameraMovement();
-			IAction moveRight = new RightCameraMovement();
-			IAction rotateUp = new RotateUpCamera();
-			IAction rotateDown = new RotateDownCamera();
-			IAction rotateLeft = new RotateLeftCamera();
-			IAction rotateRight = new RotateRightCamera(); */
+			IAction moveForward = new ForwardCameraMovement(camera, movement);
+			IAction moveBackward = new BackCameraMovement(camera, movement);
+			IAction moveLeft = new LeftCameraMovement(camera);
+			IAction moveRight = new RightCameraMovement(camera);
+			IAction rotateUp = new RotateUpCamera(camera);
+			IAction rotateDown = new RotateDownCamera(camera);
+	//		IAction rotateLeft = new RotateLeftCamera();
+	//		IAction rotateRight = new RotateRightCamera();
 		
 			// create game controller actions
 			
@@ -71,22 +72,22 @@ public class treasurehunt2015 extends BaseGame implements IEventListener{
 			/* figure out why laptop cannot run with im.associateAction */
 			
 			// Associate actions
-	//		im.associateAction(kbName, net.java.games.input.Component.Identifier.Key.W, moveForward, 
-	//				IInputManager.INPUT_ACTION_TYPE.REPEAT_WHILE_DOWN);
-	//		im.associateAction(kbName, net.java.games.input.Component.Identifier.Key.S, moveBackward, 
-	//				IInputManager.INPUT_ACTION_TYPE.REPEAT_WHILE_DOWN);			
-	//		im.associateAction(kbName, net.java.games.input.Component.Identifier.Key.A, moveLeft, 
-	//				IInputManager.INPUT_ACTION_TYPE.REPEAT_WHILE_DOWN);	
-	//		im.associateAction(kbName, net.java.games.input.Component.Identifier.Key.D, moveRight, 
-	//				IInputManager.INPUT_ACTION_TYPE.REPEAT_WHILE_DOWN);	
+			im.associateAction(kbName, net.java.games.input.Component.Identifier.Key.W, moveForward, 
+					IInputManager.INPUT_ACTION_TYPE.REPEAT_WHILE_DOWN);
+			im.associateAction(kbName, net.java.games.input.Component.Identifier.Key.S, moveBackward, 
+					IInputManager.INPUT_ACTION_TYPE.REPEAT_WHILE_DOWN);			
+			im.associateAction(kbName, net.java.games.input.Component.Identifier.Key.A, moveLeft, 
+					IInputManager.INPUT_ACTION_TYPE.REPEAT_WHILE_DOWN);	
+			im.associateAction(kbName, net.java.games.input.Component.Identifier.Key.D, moveRight, 
+					IInputManager.INPUT_ACTION_TYPE.REPEAT_WHILE_DOWN);	
 	//		im.associateAction(kbName, net.java.games.input.Component.Identifier.Key.LEFT, rotateLeft, 
 	//				IInputManager.INPUT_ACTION_TYPE.REPEAT_WHILE_DOWN);	
 	//		im.associateAction(kbName, net.java.games.input.Component.Identifier.Key.RIGHT, rotateRight, 
 	//			IInputManager.INPUT_ACTION_TYPE.REPEAT_WHILE_DOWN);	
-	//		im.associateAction(kbName, net.java.games.input.Component.Identifier.Key.Up, rotateUp, 
-	//				IInputManager.INPUT_ACTION_TYPE.REPEAT_WHILE_DOWN);	
-	//		im.associateAction(kbName, net.java.games.input.Component.Identifier.Key.Down, rotateDown, 
-	//				IInputManager.INPUT_ACTION_TYPE.REPEAT_WHILE_DOWN);	
+			im.associateAction(kbName, net.java.games.input.Component.Identifier.Key.UP, rotateUp, 
+					IInputManager.INPUT_ACTION_TYPE.REPEAT_WHILE_DOWN);	
+			im.associateAction(kbName, net.java.games.input.Component.Identifier.Key.DOWN, rotateDown, 
+					IInputManager.INPUT_ACTION_TYPE.REPEAT_WHILE_DOWN);	
 			im.associateAction(kbName, net.java.games.input.Component.Identifier.Key.ESCAPE, quitGame, 
 					IInputManager.INPUT_ACTION_TYPE.ON_PRESS_ONLY);
 			
@@ -138,16 +139,9 @@ public class treasurehunt2015 extends BaseGame implements IEventListener{
 			myTM.translate(ax, ay, 0);
 			myT.setLocalTranslation(myTM);
 			addGameWorldObject(myT);
-		//	myT.updateWorldBound();
+			myT.updateWorldBound();
 
-/*			// treasureChest
-			treasureChest = new Cube();
-			Matrix3D treasureChestM = treasureChest.getLocalTranslation();
-			treasureChestM.translate(ax, ay, 0);
-			treasureChest.setLocalTranslation(treasureChestM);
-			addGameWorldObject(treasureChest);
-			treasureChest.updateWorldBound();
-*/	
+
 			// add x, y, and z coordinates
 			Point3D origin = new Point3D(0,0,0);
 			Point3D xEnd = new Point3D(100,0,0);
@@ -181,9 +175,9 @@ public class treasurehunt2015 extends BaseGame implements IEventListener{
 			timeDisplay.setText("Time = " + (time/1000));
 
 			// move camera
-			
+	/*		
 			// collision 
-			if (rect1.getWorldBound().contains(camera.getLocation()))
+			if (rect1.getLocalBound().contains(camera.getLocation()))
 			{
 				crashInc++;
 				CrashEvent newCrash = new CrashEvent(crashInc);
@@ -193,7 +187,7 @@ public class treasurehunt2015 extends BaseGame implements IEventListener{
 				System.out.println("removing rectangle object.");
 				removeGameWorldObject(rect1);
 			}
-			if (sph.getWorldBound().contains(camera.getLocation()))
+			if (sph.getLocalBound().contains(camera.getLocation()))
 			{
 				crashInc++;
 				CrashEvent newCrash = new CrashEvent(crashInc);
@@ -203,7 +197,7 @@ public class treasurehunt2015 extends BaseGame implements IEventListener{
 				System.out.println("removing sphere object.");
 				removeGameWorldObject(sph);
 			}
-			if (cyl.getWorldBound().contains(camera.getLocation()))
+			if (cyl.getLocalBound().contains(camera.getLocation()))
 			{
 				crashInc++;
 				CrashEvent newCrash = new CrashEvent(crashInc);
@@ -213,6 +207,7 @@ public class treasurehunt2015 extends BaseGame implements IEventListener{
 				System.out.println("removing cylinder object.");
 				removeGameWorldObject(cyl);
 			}
+			*/
 		}
 
 	}

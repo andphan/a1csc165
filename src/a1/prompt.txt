@@ -44,9 +44,14 @@ InputManager.associateAction() to link device components with your Action classe
  A/D/W/S: move camera left/right/forward/backward. Note that all camera motion is relative to
 the camera’s UVN axes; for example “W” moves in the direction of the camera’s N axis.
 
+100%
+if it's okay to use the professor's code
+
  Left-arrow / Right-arrow: rotate the camera (positive or negative) around its V axis (“yaw”).
 
  Up-arrow / Down-arrow: rotate the camera (positive or negative) around its U axis (“pitch”).
+
+100%
 
  ESCAPE: quit the game.
 
@@ -93,6 +98,9 @@ treasure chest. You may place the treasure chest in the world wherever you want.
 did 1, 2, 3, 4
 
 90%
+
+No listeners found for this event: Default Event Name
+cylinder hit
 
 
 (1) creating an event class that extends AbstractGameEvent, 
@@ -163,12 +171,12 @@ SAGE provides a BoundingVolume for most of its shapes (those which do not do thi
 fact in their javadoc header comments). Translations and rotations applied to SAGE SceneNodes
 are automatically also applied to any BoundingVolume for the SceneNode (fortunately!).
 
-0% use event manager
+50%
 
  Rather than use a separate Timer to keep track of elapsed time in the HUD, you may use the
 elapsed time parameter that BaseGame passes to your update() method (it’s value is in msec).
 
-0%
+100%
 
  You will find several classes in the graphicslib3D library (that comes with SAGE) that will likely
 be helpful. These include Point3D (a 3D point), Vector3D (a 3D vector) and Matrix3D (a 4x4
