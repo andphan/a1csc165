@@ -27,7 +27,7 @@ public class treasurehunt2015 extends BaseGame implements IEventListener{
 	Sphere sph;
 	Cylinder cyl;
 	myNewTriMesh myT;
-	Cube treasureChest;
+//	Cube treasureChest;
 	IDisplaySystem display;
 	ICamera camera;
 	IInputManager im;
@@ -37,6 +37,7 @@ public class treasurehunt2015 extends BaseGame implements IEventListener{
 	private HUDString scoreDisplay;
 	private HUDString timeDisplay;
 	private float time = 0;
+	int crashInc = 0;
 	
 		public void initGame() // override
 		{	
@@ -88,6 +89,8 @@ public class treasurehunt2015 extends BaseGame implements IEventListener{
 	//				IInputManager.INPUT_ACTION_TYPE.REPEAT_WHILE_DOWN);	
 			im.associateAction(kbName, net.java.games.input.Component.Identifier.Key.ESCAPE, quitGame, 
 					IInputManager.INPUT_ACTION_TYPE.ON_PRESS_ONLY);
+			
+			super.update(0.0f);
 		}
 			
 		public void initGameObjects()
@@ -103,8 +106,8 @@ public class treasurehunt2015 extends BaseGame implements IEventListener{
 			
 			// 	create new objects by using scale()
 			Random rng = new Random();
-			float ax = rng.nextFloat()*(float)1;
-			float ay = rng.nextFloat()*(float)1;
+			float ax = rng.nextFloat()*(float)0.5;
+			float ay = rng.nextFloat()*(float)0.5;
 			
 			rect1 = new Rectangle();
 			Matrix3D rectM = rect1.getLocalTranslation();
@@ -137,14 +140,14 @@ public class treasurehunt2015 extends BaseGame implements IEventListener{
 			addGameWorldObject(myT);
 		//	myT.updateWorldBound();
 
-			// treasureChest
+/*			// treasureChest
 			treasureChest = new Cube();
 			Matrix3D treasureChestM = treasureChest.getLocalTranslation();
 			treasureChestM.translate(ax, ay, 0);
 			treasureChest.setLocalTranslation(treasureChestM);
 			addGameWorldObject(treasureChest);
 			treasureChest.updateWorldBound();
-	
+*/	
 			// add x, y, and z coordinates
 			Point3D origin = new Point3D(0,0,0);
 			Point3D xEnd = new Point3D(100,0,0);
@@ -178,7 +181,38 @@ public class treasurehunt2015 extends BaseGame implements IEventListener{
 			timeDisplay.setText("Time = " + (time/1000));
 
 			// move camera
-
+			
+			// collision 
+			if (rect1.getWorldBound().contains(camera.getLocation()))
+			{
+				crashInc++;
+				CrashEvent newCrash = new CrashEvent(crashInc);
+				em.triggerEvent(newCrash);
+				System.out.println("rectangle hit");
+				score++;
+				System.out.println("removing rectangle object.");
+				removeGameWorldObject(rect1);
+			}
+			if (sph.getWorldBound().contains(camera.getLocation()))
+			{
+				crashInc++;
+				CrashEvent newCrash = new CrashEvent(crashInc);
+				em.triggerEvent(newCrash);
+				System.out.println("sphere hit");
+				score++;
+				System.out.println("removing sphere object.");
+				removeGameWorldObject(sph);
+			}
+			if (cyl.getWorldBound().contains(camera.getLocation()))
+			{
+				crashInc++;
+				CrashEvent newCrash = new CrashEvent(crashInc);
+				em.triggerEvent(newCrash);
+				System.out.println("cylinder hit");
+				score++;
+				System.out.println("removing cylinder object.");
+				removeGameWorldObject(cyl);
+			}
 		}
 
 	}
