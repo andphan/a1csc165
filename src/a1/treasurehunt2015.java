@@ -72,7 +72,7 @@ public class treasurehunt2015 extends BaseGame implements IEventListener{
 			/* figure out why laptop cannot run with im.associateAction */
 			
 			// Associate actions
-			im.associateAction(kbName, net.java.games.input.Component.Identifier.Key.W, moveForward, 
+/*			im.associateAction(kbName, net.java.games.input.Component.Identifier.Key.W, moveForward, 
 					IInputManager.INPUT_ACTION_TYPE.REPEAT_WHILE_DOWN);
 			im.associateAction(kbName, net.java.games.input.Component.Identifier.Key.S, moveBackward, 
 					IInputManager.INPUT_ACTION_TYPE.REPEAT_WHILE_DOWN);			
@@ -91,7 +91,7 @@ public class treasurehunt2015 extends BaseGame implements IEventListener{
 			im.associateAction(kbName, net.java.games.input.Component.Identifier.Key.ESCAPE, quitGame, 
 					IInputManager.INPUT_ACTION_TYPE.ON_PRESS_ONLY);
 			
-			super.update(0.0f);
+		*/	super.update(0.0f);
 		}
 			
 		public void initGameObjects()
@@ -107,38 +107,48 @@ public class treasurehunt2015 extends BaseGame implements IEventListener{
 			
 			// 	create new objects by using scale()
 			Random rng = new Random();
-			float ax = rng.nextFloat()*(float)0.5;
-			float ay = rng.nextFloat()*(float)0.5;
-			
+			float ax = rng.nextFloat()*(float)1;
+			float ay = rng.nextFloat()*(float)1;
+			float bx = rng.nextFloat()*(float)1;
+			float by = rng.nextFloat()*(float)1;
+			float cx = rng.nextFloat()*(float)1;
+			float cy = rng.nextFloat()*(float)1;
+			float dx = rng.nextFloat()*(float)1;
+			float dy = rng.nextFloat()*(float)1;
+
 			rect1 = new Rectangle();
 			Matrix3D rectM = rect1.getLocalTranslation();
 			rectM.translate(ax, ay, 0);
 			rect1.setLocalTranslation(rectM);
 			addGameWorldObject(rect1);
+			System.out.println("rect x : " + ax + " rect y : " + ay);
 			rect1.updateWorldBound();
 
 			
 			sph = new Sphere();
 			Matrix3D sphM = sph.getLocalTranslation();
-			sphM.translate(ax, ay, 0);
+			sphM.translate(bx, by, 0);
 			sph.setLocalTranslation(sphM);
 			addGameWorldObject(sph);
+			System.out.println("sph x : " + bx + " sph y : " + by);
 			sph.updateWorldBound();
 
 			
 			cyl = new Cylinder();
 			Matrix3D cylM = cyl.getLocalTranslation();
-			cylM.translate(ax, ay, 0);
+			cylM.translate(cx, cy, 0);
 			cyl.setLocalTranslation(cylM);
 			addGameWorldObject(cyl);
+			System.out.println("cyl x : " + cx + " cyl y : " + cy);
 			cyl.updateWorldBound();
 			
 			// triMesh
 			myT = new myNewTriMesh();
 			Matrix3D myTM = myT.getLocalTranslation();
-			myTM.translate(ax, ay, 0);
+			myTM.translate(dx, dy, 0);
 			myT.setLocalTranslation(myTM);
 			addGameWorldObject(myT);
+			System.out.println("myT x : " + dx + " myT y : " + dy);
 			myT.updateWorldBound();
 
 

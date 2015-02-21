@@ -23,8 +23,6 @@ You may need to use scale() to set the sizes of the objects as desired.
 
 100%
 
-need to figure out why it isn't being randomly positioned.
-
  At least one of the treasures must be a new one that is defined completely by you, in a class that
 extends sage.scene.TriMesh. You will need to explicitly specify the vertices, colors, and
 triangles as needed to construct your object. Don’t just copy one from class notes.
