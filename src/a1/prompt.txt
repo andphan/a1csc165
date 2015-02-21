@@ -15,7 +15,7 @@ Game Program Requirements
  Your game must extend sage.app.BaseGame, and override initGame() and update().
 All game logic must reside inside these methods, or in user-written classes invoked by them.
 
-IN PROGRESS 40%
+IN PROGRESS 60%
 
  You must use sage.scene.shape objects to build some of the treasures. The game initialization
 code should instantiate several such objects of different types, randomly positioned in the world.
@@ -34,25 +34,23 @@ triangles as needed to construct your object. Don’t just copy one from class n
 that implement sage.input.action.IAction, and your game must then utilize
 InputManager.associateAction() to link device components with your Action classes.
 
-30%
+100%
 
 
  At least the following key mappings must be provided (you can can add more if you like):
 
  A/D/W/S: move camera left/right/forward/backward. Note that all camera motion is relative to
 the camera’s UVN axes; for example “W” moves in the direction of the camera’s N axis.
-
 100%
 if it's okay to use the professor's code
 
  Left-arrow / Right-arrow: rotate the camera (positive or negative) around its V axis (“yaw”).
-
+0%
  Up-arrow / Down-arrow: rotate the camera (positive or negative) around its U axis (“pitch”).
-
-100%
+0%
 
  ESCAPE: quit the game.
-
+0%
  At least the following controller mappings must be provided (you can add more if you like):
 
  X-axis: move camera left and right in the same manner as the A and S keys.
@@ -63,7 +61,6 @@ if it's okay to use the professor's code
 
  RY-axis: pitch camera around its U axis, the same as the Up/Down arrow keys.
 
-10%
 
 current error: 
 

@@ -72,7 +72,7 @@ public class treasurehunt2015 extends BaseGame implements IEventListener{
 			/* figure out why laptop cannot run with im.associateAction */
 			
 			// Associate actions
-/*			im.associateAction(kbName, net.java.games.input.Component.Identifier.Key.W, moveForward, 
+			im.associateAction(kbName, net.java.games.input.Component.Identifier.Key.W, moveForward, 
 					IInputManager.INPUT_ACTION_TYPE.REPEAT_WHILE_DOWN);
 			im.associateAction(kbName, net.java.games.input.Component.Identifier.Key.S, moveBackward, 
 					IInputManager.INPUT_ACTION_TYPE.REPEAT_WHILE_DOWN);			
@@ -91,7 +91,7 @@ public class treasurehunt2015 extends BaseGame implements IEventListener{
 			im.associateAction(kbName, net.java.games.input.Component.Identifier.Key.ESCAPE, quitGame, 
 					IInputManager.INPUT_ACTION_TYPE.ON_PRESS_ONLY);
 			
-		*/	super.update(0.0f);
+			super.update(0.0f);
 		}
 			
 		public void initGameObjects()
@@ -107,14 +107,14 @@ public class treasurehunt2015 extends BaseGame implements IEventListener{
 			
 			// 	create new objects by using scale()
 			Random rng = new Random();
-			float ax = rng.nextFloat()*(float)1;
-			float ay = rng.nextFloat()*(float)1;
-			float bx = rng.nextFloat()*(float)1;
-			float by = rng.nextFloat()*(float)1;
-			float cx = rng.nextFloat()*(float)1;
-			float cy = rng.nextFloat()*(float)1;
-			float dx = rng.nextFloat()*(float)1;
-			float dy = rng.nextFloat()*(float)1;
+			float ax = rng.nextFloat()*rng.nextInt();
+			float ay = rng.nextFloat()*rng.nextInt();
+			float bx = rng.nextFloat()*rng.nextInt();
+			float by = rng.nextFloat()*rng.nextInt();
+			float cx = rng.nextFloat()*rng.nextInt();
+			float cy = rng.nextFloat()*rng.nextInt();
+			float dx = rng.nextFloat()*rng.nextInt();
+			float dy = rng.nextFloat()*rng.nextInt();
 
 			rect1 = new Rectangle();
 			Matrix3D rectM = rect1.getLocalTranslation();
@@ -183,11 +183,9 @@ public class treasurehunt2015 extends BaseGame implements IEventListener{
 			time += elapsedTimeMS;
 			
 			timeDisplay.setText("Time = " + (time/1000));
-
-			// move camera
-	/*		
+	
 			// collision 
-			if (rect1.getLocalBound().contains(camera.getLocation()))
+			if (rect1.getWorldBound().contains(camera.getLocation()))
 			{
 				crashInc++;
 				CrashEvent newCrash = new CrashEvent(crashInc);
@@ -197,7 +195,7 @@ public class treasurehunt2015 extends BaseGame implements IEventListener{
 				System.out.println("removing rectangle object.");
 				removeGameWorldObject(rect1);
 			}
-			if (sph.getLocalBound().contains(camera.getLocation()))
+			if (sph.getWorldBound().contains(camera.getLocation()))
 			{
 				crashInc++;
 				CrashEvent newCrash = new CrashEvent(crashInc);
@@ -207,7 +205,7 @@ public class treasurehunt2015 extends BaseGame implements IEventListener{
 				System.out.println("removing sphere object.");
 				removeGameWorldObject(sph);
 			}
-			if (cyl.getLocalBound().contains(camera.getLocation()))
+			if (cyl.getWorldBound().contains(camera.getLocation()))
 			{
 				crashInc++;
 				CrashEvent newCrash = new CrashEvent(crashInc);
@@ -217,7 +215,7 @@ public class treasurehunt2015 extends BaseGame implements IEventListener{
 				System.out.println("removing cylinder object.");
 				removeGameWorldObject(cyl);
 			}
-			*/
+			
 		}
 
 	}
