@@ -59,8 +59,8 @@ public class treasurehunt2015 extends BaseGame implements IEventListener{
 			IAction moveRight = new RightCameraMovement(camera);
 			IAction rotateUp = new RotateUpCamera(camera);
 			IAction rotateDown = new RotateDownCamera(camera);
-	//		IAction rotateLeft = new RotateLeftCamera();
-	//		IAction rotateRight = new RotateRightCamera();
+			IAction rotateLeft = new RotateLeftCamera(camera);
+			IAction rotateRight = new RotateRightCamera(camera);
 		
 			// create game controller actions
 			
@@ -80,18 +80,16 @@ public class treasurehunt2015 extends BaseGame implements IEventListener{
 					IInputManager.INPUT_ACTION_TYPE.REPEAT_WHILE_DOWN);	
 			im.associateAction(kbName, net.java.games.input.Component.Identifier.Key.D, moveRight, 
 					IInputManager.INPUT_ACTION_TYPE.REPEAT_WHILE_DOWN);	
-	//		im.associateAction(kbName, net.java.games.input.Component.Identifier.Key.LEFT, rotateLeft, 
-	//				IInputManager.INPUT_ACTION_TYPE.REPEAT_WHILE_DOWN);	
-	//		im.associateAction(kbName, net.java.games.input.Component.Identifier.Key.RIGHT, rotateRight, 
-	//			IInputManager.INPUT_ACTION_TYPE.REPEAT_WHILE_DOWN);	
+			im.associateAction(kbName, net.java.games.input.Component.Identifier.Key.LEFT, rotateLeft, 
+					IInputManager.INPUT_ACTION_TYPE.REPEAT_WHILE_DOWN);	
+			im.associateAction(kbName, net.java.games.input.Component.Identifier.Key.RIGHT, rotateRight, 
+				IInputManager.INPUT_ACTION_TYPE.REPEAT_WHILE_DOWN);	
 			im.associateAction(kbName, net.java.games.input.Component.Identifier.Key.UP, rotateUp, 
 					IInputManager.INPUT_ACTION_TYPE.REPEAT_WHILE_DOWN);	
 			im.associateAction(kbName, net.java.games.input.Component.Identifier.Key.DOWN, rotateDown, 
 					IInputManager.INPUT_ACTION_TYPE.REPEAT_WHILE_DOWN);	
 			im.associateAction(kbName, net.java.games.input.Component.Identifier.Key.ESCAPE, quitGame, 
 					IInputManager.INPUT_ACTION_TYPE.ON_PRESS_ONLY);
-			
-			super.update(0.0f);
 		}
 			
 		public void initGameObjects()
@@ -107,14 +105,14 @@ public class treasurehunt2015 extends BaseGame implements IEventListener{
 			
 			// 	create new objects by using scale()
 			Random rng = new Random();
-			float ax = rng.nextFloat()*rng.nextInt();
-			float ay = rng.nextFloat()*rng.nextInt();
-			float bx = rng.nextFloat()*rng.nextInt();
-			float by = rng.nextFloat()*rng.nextInt();
-			float cx = rng.nextFloat()*rng.nextInt();
-			float cy = rng.nextFloat()*rng.nextInt();
-			float dx = rng.nextFloat()*rng.nextInt();
-			float dy = rng.nextFloat()*rng.nextInt();
+			float ax = rng.nextFloat()-(float).5;
+			float ay = rng.nextFloat()-(float).5;
+			float bx = rng.nextFloat()-(float).5;
+			float by = rng.nextFloat()-(float).5;
+			float cx = rng.nextFloat()-(float).5;
+			float cy = rng.nextFloat()-(float).5;
+			float dx = rng.nextFloat()-(float).5;
+			float dy = rng.nextFloat()-(float).5;
 
 			rect1 = new Rectangle();
 			Matrix3D rectM = rect1.getLocalTranslation();
@@ -145,7 +143,7 @@ public class treasurehunt2015 extends BaseGame implements IEventListener{
 			// triMesh
 			myT = new myNewTriMesh();
 			Matrix3D myTM = myT.getLocalTranslation();
-			myTM.translate(dx, dy, 0);
+			myTM.translate(0, 0, 0);
 			myT.setLocalTranslation(myTM);
 			addGameWorldObject(myT);
 			System.out.println("myT x : " + dx + " myT y : " + dy);
@@ -172,6 +170,8 @@ public class treasurehunt2015 extends BaseGame implements IEventListener{
 			timeDisplay.setColor(Color.WHITE);
 			timeDisplay.setLocation(0, 0.025);
 			addGameWorldObject(timeDisplay);
+			
+			super.update(0.0f);
 			
 		}
 		public void update(float elapsedTimeMS)
@@ -215,7 +215,6 @@ public class treasurehunt2015 extends BaseGame implements IEventListener{
 				System.out.println("removing cylinder object.");
 				removeGameWorldObject(cyl);
 			}
-			
 		}
-
+		
 	}

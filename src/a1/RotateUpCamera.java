@@ -20,14 +20,14 @@ public class RotateUpCamera extends AbstractInputAction {
 		// create Vector3D
 		
 		Vector3D curLoc = new Vector3D(camera.getLocation());
-		Vector3D viewDir = camera.getUpAxis().normalize();
+		Vector3D viewDir = camera.getRightAxis().normalize();
 		Vector3D newLoc = curLoc.add(viewDir);
 				
 		// set to new vector
 		double dx = newLoc.getX();
 		double dy = newLoc.getY();
 		double dz = newLoc.getZ();
-		Point3D newPoint = new Point3D(dx, dy, dz);
+		Point3D newPoint = new Point3D(dx, curLoc.getY(), curLoc.getY());
 		camera.setLocation(newPoint);
 		
 		System.out.println("u " + newPoint.getX());
