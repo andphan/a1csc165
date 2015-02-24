@@ -33,9 +33,12 @@ public class XAxisMovement extends AbstractInputAction {
 		double newZ = newLoc.getZ();
 		Point3D newLocation = new Point3D(newX, newY, newZ);
 		camera.setLocation(newLocation);
+		
+		System.out.println("Xaxis is being called");
 		System.out.println("u " + newLocation.getX()); // increases U  
 		System.out.println("v" + newLocation.getY());
 		System.out.println("n " + newLocation.getZ());
+		
 		
 	}
 	

@@ -65,7 +65,7 @@ public class treasurehunt2015 extends BaseGame implements IEventListener{
 			// create game controller actions
 			
 			IAction controllerX = new XAxisMovement(camera, 0.01f);
-	//		IAction controllerY = new YAxisMovement();
+			IAction controllerY = new YAxisMovement(camera, 0.01f);
 			IAction controllerRX = new RXAxisMovement(camera, 0.01f);
 			IAction controllerRY = new RYAxisMovement(camera, 0.01f);
 		
@@ -96,6 +96,10 @@ public class treasurehunt2015 extends BaseGame implements IEventListener{
 			im.associateAction(gpName, net.java.games.input.Component.Identifier.Axis.RY, controllerRY,
 					IInputManager.INPUT_ACTION_TYPE.REPEAT_WHILE_DOWN);
 			im.associateAction(gpName, net.java.games.input.Component.Identifier.Axis.RX, controllerRX,
+					IInputManager.INPUT_ACTION_TYPE.REPEAT_WHILE_DOWN);
+			im.associateAction(gpName, net.java.games.input.Component.Identifier.Axis.X, controllerX,
+					IInputManager.INPUT_ACTION_TYPE.REPEAT_WHILE_DOWN);
+			im.associateAction(gpName, net.java.games.input.Component.Identifier.Axis.Y, controllerY,
 					IInputManager.INPUT_ACTION_TYPE.REPEAT_WHILE_DOWN);
 		}
 			
