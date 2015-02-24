@@ -94,11 +94,13 @@ if it's okay to use the professor's code
 
  X-axis: move camera left and right in the same manner as the A and S keys.
 
- Y-axis: move camera forward and backward in the same manner as the W and D keys.
+100%
 
+ Y-axis: move camera forward and backward in the same manner as the W and D keys.
+100%
  RX-axis: yaw camera around its V axis, the same as the Left/Right arrow keys.
 
-not working
+100%
 
  RY-axis: pitch camera around its U axis, the same as the Up/Down arrow keys.
 
