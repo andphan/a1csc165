@@ -64,14 +64,14 @@ public class treasurehunt2015 extends BaseGame implements IEventListener{
 		
 			// create game controller actions
 			
-	//		IAction controllerX = new XAxisMovement();
+			IAction controllerX = new XAxisMovement(camera, 0.01f);
 	//		IAction controllerY = new YAxisMovement();
-	//		IAction controllerRX = new RXAxisMovement();
-	//		IAction controllerRY = new RYAxisMovement();
+			IAction controllerRX = new RXAxisMovement(camera, 0.01f);
+			IAction controllerRY = new RYAxisMovement(camera, 0.01f);
 		
 			/* figure out why laptop cannot run with im.associateAction */
 			
-			// Associate actions
+			// Associate actions with keyboard
 			im.associateAction(kbName, net.java.games.input.Component.Identifier.Key.W, moveForward, 
 					IInputManager.INPUT_ACTION_TYPE.REPEAT_WHILE_DOWN);
 			im.associateAction(kbName, net.java.games.input.Component.Identifier.Key.S, moveBackward, 
@@ -90,6 +90,13 @@ public class treasurehunt2015 extends BaseGame implements IEventListener{
 					IInputManager.INPUT_ACTION_TYPE.REPEAT_WHILE_DOWN);	
 			im.associateAction(kbName, net.java.games.input.Component.Identifier.Key.ESCAPE, quitGame, 
 					IInputManager.INPUT_ACTION_TYPE.ON_PRESS_ONLY);
+			
+			
+			// associate actions with controllers
+			im.associateAction(gpName, net.java.games.input.Component.Identifier.Axis.RY, controllerRY,
+					IInputManager.INPUT_ACTION_TYPE.REPEAT_WHILE_DOWN);
+			im.associateAction(gpName, net.java.games.input.Component.Identifier.Axis.RX, controllerRX,
+					IInputManager.INPUT_ACTION_TYPE.REPEAT_WHILE_DOWN);
 		}
 			
 		public void initGameObjects()

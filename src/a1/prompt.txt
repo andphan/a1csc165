@@ -9,6 +9,8 @@ current list -
 
  RY-axis: pitch camera around its U axis, the same as the Up/Down arrow keys.
 
+100%
+
  One of the objects placed in the game is the “Treasure Chest”. The treasure chest should look
 like a simple box – you can either define your own, or use a SAGE Cube. Whenever you collect a
 treasure, the size of the treasure chest should increase. To trigger this happening, you will need to
@@ -96,13 +98,11 @@ if it's okay to use the professor's code
 
  RX-axis: yaw camera around its V axis, the same as the Left/Right arrow keys.
 
+not working
+
  RY-axis: pitch camera around its U axis, the same as the Up/Down arrow keys.
 
-
-current error: 
-
-Feb 19, 2015 10:30:56 PM net.java.games.input.ControllerEnvironment log
-INFO: Failed to poll device: Failed to poll device (8007001e)
+100%
 
  The game must display world axes showing where the world origin is located. The X axis should
 be red, the Y axis green, and the Z axis blue. You may add an input command to toggle the axes
