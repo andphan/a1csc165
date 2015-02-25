@@ -125,8 +125,8 @@ public class MyGame extends BaseGame implements IEventListener{
 			float dy = rng.nextFloat()-(float)0.5;
 			float ex = rng.nextFloat()-(float)0.5;
 			float ey = rng.nextFloat()-(float)0.5;
-			
-
+		
+			// objects
 			rect1 = new Rectangle();
 			Matrix3D rectM = rect1.getLocalTranslation();
 			rectM.translate(ax, ay, 0);
@@ -152,26 +152,27 @@ public class MyGame extends BaseGame implements IEventListener{
 			addGameWorldObject(cyl);
 			System.out.println("cyl x : " + cx + " cyl y : " + cy);
 			cyl.updateWorldBound();
+
 			
-			
-			
-			// triMesh
-			myT = new myNewTriMesh();
-			Matrix3D myTM = myT.getLocalTranslation();
-			myTM.translate(dx, dy, 0);
-			myT.setLocalTranslation(myTM);
-			addGameWorldObject(myT);
-			System.out.println("myT x : " + dx + " myT y : " + dy);
-			myT.updateWorldBound();
-			
-			// triMesh
 			cub = new Cube();
 			Matrix3D cubM = cub.getLocalTranslation();
 			cubM.translate(ex, ey, 0);
 			cub.setLocalTranslation(cubM);
 			addGameWorldObject(cub);
-			System.out.println("cub x : " + dx + " cub y : " + dy);
+			System.out.println("cub x : " + ex + " cub y : " + ey);
 			cub.updateWorldBound();
+			
+		
+			// triMesh treasurechest
+			myT = new myNewTriMesh();
+			Matrix3D myTM = myT.getLocalTranslation();
+			myTM.translate(0, 0, 0);
+			myT.setLocalTranslation(myTM);
+			addGameWorldObject(myT);
+			System.out.println("myT x : "  + " myT y : " + dy);
+			myT.updateWorldBound();
+			
+
 
 
 
@@ -208,7 +209,7 @@ public class MyGame extends BaseGame implements IEventListener{
 			time += elapsedTimeMS;
 			
 			timeDisplay.setText("Time = " + (time/1000));
-	
+
 			// collision 
 			if (rect1.getWorldBound().contains(camera.getLocation()))
 			{
@@ -250,6 +251,7 @@ public class MyGame extends BaseGame implements IEventListener{
 				System.out.println("removing rectangle object.");
 				removeGameWorldObject(cub);
 			}
+
 		}
 		
 	}
