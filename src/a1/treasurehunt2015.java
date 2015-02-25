@@ -27,7 +27,7 @@ public class treasurehunt2015 extends BaseGame implements IEventListener{
 	Sphere sph;
 	Cylinder cyl;
 	myNewTriMesh myT;
-//	Cube treasureChest;
+	Cube cub;
 	IDisplaySystem display;
 	ICamera camera;
 	IInputManager im;
@@ -116,14 +116,17 @@ public class treasurehunt2015 extends BaseGame implements IEventListener{
 			
 			// 	create new objects by using scale()
 			Random rng = new Random();
-			float ax = rng.nextFloat()-(float).5;
-			float ay = rng.nextFloat()-(float).5;
-			float bx = rng.nextFloat()-(float).5;
-			float by = rng.nextFloat()-(float).5;
-			float cx = rng.nextFloat()-(float).5;
-			float cy = rng.nextFloat()-(float).5;
-			float dx = rng.nextFloat()-(float).5;
-			float dy = rng.nextFloat()-(float).5;
+			float ax = rng.nextFloat()-(float)0.5;
+			float ay = rng.nextFloat()-(float)0.5;
+			float bx = rng.nextFloat()-(float)0.5;
+			float by = rng.nextFloat()-(float)0.5;
+			float cx = rng.nextFloat()-(float)0.5;
+			float cy = rng.nextFloat()-(float)0.5;
+			float dx = rng.nextFloat()-(float)0.5;
+			float dy = rng.nextFloat()-(float)0.5;
+			float ex = rng.nextFloat()-(float)0.5;
+			float ey = rng.nextFloat()-(float)0.5;
+			
 
 			rect1 = new Rectangle();
 			Matrix3D rectM = rect1.getLocalTranslation();
@@ -151,14 +154,26 @@ public class treasurehunt2015 extends BaseGame implements IEventListener{
 			System.out.println("cyl x : " + cx + " cyl y : " + cy);
 			cyl.updateWorldBound();
 			
+			
+			
 			// triMesh
 			myT = new myNewTriMesh();
 			Matrix3D myTM = myT.getLocalTranslation();
-			myTM.translate(0, 0, 0);
+			myTM.translate(dx, dy, 0);
 			myT.setLocalTranslation(myTM);
 			addGameWorldObject(myT);
 			System.out.println("myT x : " + dx + " myT y : " + dy);
 			myT.updateWorldBound();
+			
+			// triMesh
+			cub = new Cube();
+			Matrix3D cubM = cub.getLocalTranslation();
+			cubM.translate(ex, ey, 0);
+			cub.setLocalTranslation(cubM);
+			addGameWorldObject(cub);
+			System.out.println("cub x : " + dx + " cub y : " + dy);
+			cub.updateWorldBound();
+
 
 
 			// add x, y, and z coordinates
@@ -225,6 +240,16 @@ public class treasurehunt2015 extends BaseGame implements IEventListener{
 				score++;
 				System.out.println("removing cylinder object.");
 				removeGameWorldObject(cyl);
+			}
+			if (cub.getWorldBound().contains(camera.getLocation()))
+			{
+				crashInc++;
+				CrashEvent newCrash = new CrashEvent(crashInc);
+				em.triggerEvent(newCrash);
+				System.out.println("cube hit");
+				score++;
+				System.out.println("removing rectangle object.");
+				removeGameWorldObject(cub);
 			}
 		}
 		
