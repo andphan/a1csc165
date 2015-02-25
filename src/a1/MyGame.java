@@ -12,7 +12,6 @@ import sage.scene.shape.*;
 import graphicslib3D.Matrix3D;
 import graphicslib3D.Point3D;
 
-import java.awt.event.*;
 import java.util.Random;
 import java.awt.Color;
 import java.nio.*;
@@ -21,7 +20,7 @@ import net.java.games.input.Controller;
 import net.java.games.input.*;
 
 
-public class treasurehunt2015 extends BaseGame implements IEventListener{
+public class MyGame extends BaseGame implements IEventListener{
 	// what type of objects are in the game
 	Rectangle rect1;
 	Sphere sph;

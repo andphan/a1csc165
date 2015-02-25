@@ -5,7 +5,7 @@ public class Starter {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-	    new treasurehunt2015().start();
+	    new MyGame().start();
 		System.out.println("test");
 	}
 
