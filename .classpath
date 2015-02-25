@@ -66,6 +66,5 @@
 	<classpathentry kind="lib" path="C:/javagaming/jinput/jinput.jar"/>
 	<classpathentry kind="lib" path="C:/javagaming/jbullet/jbullet.jar"/>
 	<classpathentry kind="lib" path="C:/javagaming/graphicslib3D/graphicslib3D.jar"/>
-	<classpathentry kind="lib" path="C:/javagaming"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
